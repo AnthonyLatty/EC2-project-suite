@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.489
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "JPS", "JPS", "{A027DE48-C481-4219-9D04-077F9AC5AC63}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BNS", "BNS", "{1E959234-4CB1-46AC-9A9F-47AA6E83CBD1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NCB", "NCB", "{59D6E35E-32F9-4BC0-80EF-D71C31131E97}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JPS_web", "JPS_web\JPS_web.csproj", "{195F5DD7-E489-41F3-8B37-78D75E63905F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{195F5DD7-E489-41F3-8B37-78D75E63905F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{195F5DD7-E489-41F3-8B37-78D75E63905F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{195F5DD7-E489-41F3-8B37-78D75E63905F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{195F5DD7-E489-41F3-8B37-78D75E63905F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{195F5DD7-E489-41F3-8B37-78D75E63905F} = {A027DE48-C481-4219-9D04-077F9AC5AC63}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F0D0221E-E715-494D-9BE7-68892D8BCCEF}
+	EndGlobalSection
+EndGlobal
