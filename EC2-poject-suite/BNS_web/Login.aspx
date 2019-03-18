@@ -43,15 +43,20 @@
                             </div>
                         </div>
                     </div>
-                    <p>
-                        <asp:HyperLink runat="server" ID="RegisterHyperLink" ViewStateMode="Disabled">Register as a new user</asp:HyperLink>
-                    </p>
                 </section>
             </div>
 
             <div class="col-md-4">
                 <section id="socialLoginForm">
-                    <%-- Side bar --%>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <p>
+                        <asp:HyperLink runat="server" ID="RegisterHyperLink" CssClass="btn btn-primary" ViewStateMode="Disabled">Register a new user</asp:HyperLink>
+                    </p>
                 </section>
             </div>
         </div>
