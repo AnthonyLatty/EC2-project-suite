@@ -45,17 +45,48 @@
                             <li><a runat="server" href="~/Login">Log in</a></li>
                         </ul>
                     </AnonymousTemplate>
-                    <LoggedInTemplate>
-                        <ul class="nav navbar-nav navbar-right">
-                            <li>
-                                <a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a>
 
-                            </li>
-                            <li>
-                                <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
-                            </li>
-                        </ul>
-                    </LoggedInTemplate>
+                    <%-- Admin Role --%>
+                    <RoleGroups>
+                        <asp:RoleGroup Roles="admin">
+                            <ContentTemplate>
+                                <div class="navbar-collapse collapse">
+                                    <ul class="nav navbar-nav">
+                                        <li><a runat="server" href="~/Account/Admin/Dashboard">Dashboard</a></li>
+                                    </ul>
+
+                                    <ul class="nav navbar-nav navbar-right">
+                                        <li>
+                                            <a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a>
+                                        </li>
+                                        <li>
+                                            <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                                        </li>
+                                    </ul>
+                                </div>
+                            </ContentTemplate>
+                        </asp:RoleGroup>
+
+                        <%-- Customer Role --%>
+                        <asp:RoleGroup Roles="Customer">
+                            <ContentTemplate>
+                                <div class="navbar-collapse collapse">
+                                    <ul class="nav navbar-nav">
+                                        <li><a runat="server" href="~/Account/Customer/ManageBill">Manage my bills</a></li>
+                                    </ul>
+
+                                    <ul class="nav navbar-nav navbar-right">
+                                        <li>
+                                            <a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a>
+                                        </li>
+                                        <li>
+                                            <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                                        </li>
+                                    </ul>
+                                </div>
+                            </ContentTemplate>
+                        </asp:RoleGroup>
+                    </RoleGroups>
                 </asp:LoginView>
             </div>
         </nav>

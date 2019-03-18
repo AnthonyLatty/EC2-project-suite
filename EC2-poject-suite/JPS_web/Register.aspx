@@ -12,6 +12,11 @@
                 <hr />
                 <asp:ValidationSummary runat="server" CssClass="text-danger" />
                 <div class="form-group">
+                    <div class="col-md-10">
+                        <asp:TextBox runat="server" ID="PremisesNumber" Visible="false" CssClass="form-control" />
+                    </div>
+                </div>
+                <div class="form-group">
                     <asp:Label runat="server" AssociatedControlID="Email" CssClass="col-md-2 control-label">Email</asp:Label>
                     <div class="col-md-10">
                         <asp:TextBox runat="server" ID="Email" CssClass="form-control" TextMode="Email" />
