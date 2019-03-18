@@ -3,9 +3,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
-using Owin;
-using JPS_web.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.Owin.Security;
 
 namespace JPS_web.Account
 {
@@ -13,18 +12,35 @@ namespace JPS_web.Account
     {
         protected void CreateUser_Click(object sender, EventArgs e)
         {
-            var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
-            var signInManager = Context.GetOwinContext().Get<ApplicationSignInManager>();
-            var user = new ApplicationUser() { UserName = Email.Text, Email = Email.Text };
-            IdentityResult result = manager.Create(user, Password.Text);
+            // Create role
+            var roleStore = new RoleStore<IdentityRole>();
+            var roleManager = new RoleManager<IdentityRole>(roleStore);
+            if (!roleManager.RoleExists("Customer"))
+            {
+                roleManager.Create(new IdentityRole("Customer"));
+            }
+
+            // Create user
+            var userStore = new UserStore<IdentityUser>();
+            var userManager = new UserManager<IdentityUser>(userStore);
+            var user = new IdentityUser
+            {
+                UserName = Email.Text,
+                Email = Email.Text
+            };
+
+            // Add user to role
+            var result = userManager.Create(user, Password.Text);
+            if (!userManager.IsInRole(userManager.FindByEmail(user.Email).Id, "Customer"))
+            {
+                userManager.AddToRole(userManager.FindByEmail(user.Email).Id, "Customer");
+            }
+
             if (result.Succeeded)
             {
-                // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
-                //string code = manager.GenerateEmailConfirmationToken(user.Id);
-                //string callbackUrl = IdentityHelper.GetUserConfirmationRedirectUrl(code, user.Id, Request);
-                //manager.SendEmail(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>.");
-
-                signInManager.SignIn( user, isPersistent: false, rememberBrowser: false);
+                var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
+                var userIdentity = userManager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
+                authenticationManager.SignIn(new AuthenticationProperties() { }, userIdentity);
                 IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
             }
             else 
