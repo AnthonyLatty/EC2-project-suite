@@ -1,13 +1,13 @@
-﻿<%@ Page Title="Log in" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="JPS_web.Account.Login" Async="true" %>
+﻿<%@ Page Title="Log in" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="BNS_web.Account.Login" Async="true" %>
+
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
-
     <div class="container">
         <div class="row">
             <div class="col-md-8">
                 <section id="loginForm">
                     <div class="form-horizontal">
-                        <h4>Use a JPS account to log in.</h4>
+                        <h4>Use a Scotia account to log in.</h4>
                         <hr />
                         <asp:PlaceHolder runat="server" ID="ErrorMessage" Visible="false">
                             <p class="text-danger">
@@ -39,21 +39,20 @@
                         </div>
                         <div class="form-group">
                             <div class="col-md-offset-2 col-md-10">
-                                <asp:Button runat="server" OnClick="LogIn" Text="Log in" CssClass="btn btn-success" />
+                                <asp:Button runat="server" OnClick="LogIn" Text="Log in" CssClass="btn btn-default" />
                             </div>
                         </div>
                     </div>
+                    <p>
+                        <asp:HyperLink runat="server" ID="RegisterHyperLink" ViewStateMode="Disabled">Register as a new user</asp:HyperLink>
+                    </p>
                 </section>
             </div>
 
             <div class="col-md-4">
-                <div id="socialLoginList">
-                    <h4>Register to view your bills.</h4>
-                    <hr />
-                    <p>
-                        <asp:HyperLink runat="server" ID="RegisterHyperLink" CssClass="btn btn-default" ViewStateMode="Disabled">Register as a new user</asp:HyperLink>
-                    </p>
-                </div>
+                <section id="socialLoginForm">
+                    <%-- Side bar --%>
+                </section>
             </div>
         </div>
     </div>

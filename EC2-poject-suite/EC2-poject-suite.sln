@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NCB", "NCB", "{59D6E35E-32F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JPS_web", "JPS_web\JPS_web.csproj", "{195F5DD7-E489-41F3-8B37-78D75E63905F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BNS_web", "BNS_web\BNS_web.csproj", "{2ED400D1-1B42-4A0F-B04C-70573CAA2D4C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,12 +23,17 @@ Global
 		{195F5DD7-E489-41F3-8B37-78D75E63905F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{195F5DD7-E489-41F3-8B37-78D75E63905F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{195F5DD7-E489-41F3-8B37-78D75E63905F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2ED400D1-1B42-4A0F-B04C-70573CAA2D4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2ED400D1-1B42-4A0F-B04C-70573CAA2D4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2ED400D1-1B42-4A0F-B04C-70573CAA2D4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2ED400D1-1B42-4A0F-B04C-70573CAA2D4C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{195F5DD7-E489-41F3-8B37-78D75E63905F} = {A027DE48-C481-4219-9D04-077F9AC5AC63}
+		{2ED400D1-1B42-4A0F-B04C-70573CAA2D4C} = {1E959234-4CB1-46AC-9A9F-47AA6E83CBD1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F0D0221E-E715-494D-9BE7-68892D8BCCEF}
