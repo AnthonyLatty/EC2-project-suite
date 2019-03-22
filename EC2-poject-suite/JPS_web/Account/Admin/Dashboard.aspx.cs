@@ -13,5 +13,10 @@ namespace JPS_web.Account.Admin
         {
 
         }
+
+        protected void GridViewCustomerBill_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

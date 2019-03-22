@@ -50,6 +50,8 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -164,6 +166,16 @@
     <Content Include="Account\Forgot.aspx" />
     <Content Include="Account\Lockout.aspx" />
     <Content Include="Content\Error.css" />
+    <Content Include="Models\CustomerBillDBContext.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CustomerBillDBContext.edmx</DependentUpon>
+      <LastGenOutput>CustomerBillDBContext.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\CustomerBillDBContext.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CustomerBillDBContext.edmx</DependentUpon>
+      <LastGenOutput>CustomerBillDBContext.cs</LastGenOutput>
+    </Content>
     <Content Include="Images\error_emoji.png" />
     <Content Include="Images\JPS-Man.png" />
     <Content Include="Login.aspx" />
@@ -199,6 +211,13 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
+    <EntityDeploy Include="Models\CustomerBillDBContext.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CustomerBillDBContext.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\CustomerBillDBContext.edmx.diagram">
+      <DependentUpon>CustomerBillDBContext.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Images\JPS-official-logo.png" />
     <Content Include="Images\Powering_tomorrow_header.jpg" />
@@ -269,6 +288,27 @@
     </Compile>
     <Compile Include="Account\Lockout.aspx.designer.cs">
       <DependentUpon>Lockout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUser.cs">
+      <DependentUpon>CustomerBillDBContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Bill.cs">
+      <DependentUpon>CustomerBillDBContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CustomerBillDBContext.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CustomerBillDBContext.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CustomerBillDBContext.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CustomerBillDBContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CustomerBillDBContext.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CustomerBillDBContext.edmx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -385,6 +425,9 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
