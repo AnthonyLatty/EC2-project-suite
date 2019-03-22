@@ -12,7 +12,7 @@ namespace JPS_web.Account.Admin
 
         }
 
-        public void addBillForm_InsertItem()
+        public void AddBillForm_InsertItem()
         {
             var item = new CustomerBill();
 
@@ -28,12 +28,12 @@ namespace JPS_web.Account.Admin
             }
         }
 
-        protected void addBillForm_ItemInserted(object sender, FormViewInsertedEventArgs e)
+        protected void AddBillForm_ItemInserted(object sender, FormViewInsertedEventArgs e)
         {
             Response.Redirect("Dashboard.aspx");
         }
 
-        protected void cancelButton_Click(object sender, EventArgs e)
+        protected void CancelButton_Click(object sender, EventArgs e)
         {
             Response.Redirect("Dashboard.aspx");
         }

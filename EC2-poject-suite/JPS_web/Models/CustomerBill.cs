@@ -5,7 +5,7 @@ namespace JPS_web.Models
 {
     public class CustomerBill
     {
-        [Key, Display(Name = "ID")]
+        [Key, Display(Name = "Bill ID")]
         public int BillId { get; set; }
 
         [Required, Display(Name = "Create Date")]
@@ -26,7 +26,7 @@ namespace JPS_web.Models
         public string Address { get; set; }
 
         [Required, Display(Name = "Amount (JMD)")]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:C}")]
+        [DisplayFormat(ApplyFormatInEditMode = false, DataFormatString = "{0:C}")]
         public decimal Amount { get; set; }
     }
 }

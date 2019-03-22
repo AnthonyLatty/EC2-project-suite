@@ -4,10 +4,13 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <h3>Manage Customer's Bill</h3>
                 <asp:ValidationSummary ShowModelStateErrors="true" runat="server" ForeColor="Red" />
-                <asp:GridView CssClass="table table-hover table-bordered" UseAccessibleHeader="true" GridLines="None"
+                <asp:GridView 
+                    CssClass="table table-hover table-bordered" 
+                    UseAccessibleHeader="true" 
+                    GridLines="None"
                     ID="GridViewCustomerBill"
                     DataKeyNames="BillId" 
                     AllowPaging="true" 
