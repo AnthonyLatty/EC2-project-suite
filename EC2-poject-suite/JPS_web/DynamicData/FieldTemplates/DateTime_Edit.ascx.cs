@@ -7,7 +7,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace JPS_web {
-    public partial class DateTime_EditField : System.Web.DynamicData.FieldTemplateUserControl {
+    public partial class DateTime_EditField : FieldTemplateUserControl
+    {
         private static DataTypeAttribute DefaultDateAttribute = new DataTypeAttribute(DataType.DateTime);
         protected void Page_Load(object sender, EventArgs e) {
             TextBox1.ToolTip = Column.Description;

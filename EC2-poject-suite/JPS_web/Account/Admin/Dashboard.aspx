@@ -7,7 +7,7 @@
             <div class="col-md-8">
                 <h3>Manage Customer's Bill</h3>
                 <asp:ValidationSummary ShowModelStateErrors="true" runat="server" ForeColor="Red" />
-                <asp:GridView
+                <asp:GridView CssClass="table table-hover table-bordered" UseAccessibleHeader="true" GridLines="None"
                     ID="GridViewCustomerBill"
                     DataKeyNames="BillId" 
                     AllowPaging="true" 

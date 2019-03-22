@@ -25,8 +25,8 @@ namespace JPS_web.Models
         [Required, StringLength(100)]
         public string Address { get; set; }
 
-        [Required]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:C} JMD")]
+        [Required, Display(Name = "Amount (JMD)")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:C}")]
         public decimal Amount { get; set; }
     }
 }
