@@ -584,6 +584,10 @@
     <Compile Include="Migrations\201903220602113_AddDateFormat.Designer.cs">
       <DependentUpon>201903220602113_AddDateFormat.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903231925145_ResetDatabase.cs" />
+    <Compile Include="Migrations\201903231925145_ResetDatabase.Designer.cs">
+      <DependentUpon>201903231925145_ResetDatabase.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CustomerBill.cs" />
     <Compile Include="Models\JPSContext.cs" />
@@ -691,6 +695,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903220602113_AddDateFormat.resx">
       <DependentUpon>201903220602113_AddDateFormat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903231925145_ResetDatabase.resx">
+      <DependentUpon>201903231925145_ResetDatabase.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
