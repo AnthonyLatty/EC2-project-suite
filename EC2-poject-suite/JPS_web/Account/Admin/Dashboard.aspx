@@ -7,13 +7,23 @@
             <div class="col-md-12">
                 <h3>Manage Customer's Bill</h3>
                 <asp:ValidationSummary ShowModelStateErrors="true" runat="server" ForeColor="Red" />
-                <asp:GridView 
-                    CssClass="table table-hover table-bordered" 
-                    UseAccessibleHeader="true" 
+                <br />
+                <br />
+                <asp:Label runat="server" Text="Filter Bill Status:" />
+                <asp:DropDownList runat="server" AutoPostBack="true" ID="DisplayBillStatus">
+                    <asp:ListItem Text="All" Value="" />
+                    <asp:ListItem Text="Pending" />
+                    <asp:ListItem Text="Paid" />
+                </asp:DropDownList>
+                <br />
+                <br />
+                <asp:GridView
+                    CssClass="table table-hover table-bordered"
+                    UseAccessibleHeader="true"
                     GridLines="None"
                     ID="GridViewCustomerBill"
-                    DataKeyNames="BillId" 
-                    AllowPaging="true" 
+                    DataKeyNames="BillId"
+                    AllowPaging="true"
                     PageSize="5"
                     ItemType="JPS_web.Models.CustomerBill"
                     runat="server"
@@ -30,6 +40,7 @@
                         <asp:DynamicField DataField="BillDueDate" />
                         <asp:DynamicField DataField="PremisesNumber" />
                         <asp:DynamicField DataField="CustomerId" />
+                        <asp:DynamicField DataField="Status" />
                         <asp:DynamicField DataField="Address" />
                         <asp:DynamicField DataField="Amount" />
                     </Columns>

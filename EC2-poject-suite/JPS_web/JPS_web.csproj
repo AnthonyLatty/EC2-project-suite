@@ -588,6 +588,10 @@
     <Compile Include="Migrations\201903231925145_ResetDatabase.Designer.cs">
       <DependentUpon>201903231925145_ResetDatabase.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903232221390_AddBillStatusColumn.cs" />
+    <Compile Include="Migrations\201903232221390_AddBillStatusColumn.Designer.cs">
+      <DependentUpon>201903232221390_AddBillStatusColumn.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CustomerBill.cs" />
     <Compile Include="Models\JPSContext.cs" />
@@ -698,6 +702,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903231925145_ResetDatabase.resx">
       <DependentUpon>201903231925145_ResetDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903232221390_AddBillStatusColumn.resx">
+      <DependentUpon>201903232221390_AddBillStatusColumn.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

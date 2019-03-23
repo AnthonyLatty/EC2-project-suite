@@ -2,6 +2,7 @@
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
+using System.Web.ModelBinding;
 using System.Web.UI;
 using JPS_web.Models;
 
@@ -25,10 +26,16 @@ namespace JPS_web.Account.Admin
         //     int startRowIndex
         //     out int totalRowCount
         //     string sortByExpression
-        public IQueryable<CustomerBill> CustomerBill_GetData()
+        public IQueryable<CustomerBill> CustomerBill_GetData([Control] BillStatus? displayBillStatus)
         {
             JPSContext db = new JPSContext();
-            var query = db.CustomerBills;
+            IQueryable<CustomerBill> query = db.CustomerBills.OrderBy(a => a.BillId);
+
+            if (displayBillStatus != null)
+            {
+                query = query.Where(s => s.Status == displayBillStatus);
+            }
+
             return query;
         }
 

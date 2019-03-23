@@ -22,11 +22,20 @@ namespace JPS_web.Models
         [Required, Display(Name = "Customer ID")]
         public int CustomerId { get; set; }
 
+        [EnumDataType(typeof(BillStatus)), Display(Name = "Bill Status")]
+        public BillStatus Status { get; set; }
+
         [Required, StringLength(100)]
         public string Address { get; set; }
 
         [Required, Display(Name = "Amount (JMD)")]
         [DisplayFormat(ApplyFormatInEditMode = false, DataFormatString = "{0:C}")]
         public decimal Amount { get; set; }
+    }
+
+    public enum BillStatus
+    {
+        Pending,
+        Paid
     }
 }
