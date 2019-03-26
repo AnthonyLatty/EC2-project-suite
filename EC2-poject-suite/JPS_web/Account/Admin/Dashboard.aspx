@@ -28,7 +28,7 @@
                     ItemType="JPS_web.Models.CustomerBill"
                     runat="server"
                     AutoGenerateColumns="false"
-                    ShowFooter="true"
+                    ShowFooter="false"
                     SelectMethod="CustomerBill_GetData"
                     UpdateMethod="CustomerBill_UpdateItem"
                     DeleteMethod="CustomerBill_DeleteItem"
