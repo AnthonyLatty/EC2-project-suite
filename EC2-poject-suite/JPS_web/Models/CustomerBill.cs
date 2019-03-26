@@ -1,11 +1,14 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace JPS_web.Models
 {
     public class CustomerBill
     {
         [Key, Display(Name = "Bill ID")]
+        [Editable(false)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int BillId { get; set; }
 
         [Required, Display(Name = "Create Date")]
