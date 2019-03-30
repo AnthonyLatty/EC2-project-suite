@@ -169,6 +169,7 @@
     <Content Include="Account\Admin\Dashboard.aspx" />
     <Content Include="Account\Customer\ManageBill.aspx" />
     <Content Include="Account\Forgot.aspx" />
+    <Content Include="Account\JPS-official-logo.png" />
     <Content Include="Account\Lockout.aspx" />
     <Content Include="Content\Error.css" />
     <Content Include="Content\themes\base\accordion.css" />

@@ -102,7 +102,7 @@
                             <span class="icon-bar"></span>
                         </button>
                         <a class="navbar-brand" runat="server" href="~/">
-                            <img class="logo" src="Images/JPS-official-logo.png" />
+                            <img class="logo" src="../../Account/JPS-official-logo.png" />
                         </a>
                     </div>
                     <div class="navbar-collapse collapse">

@@ -162,6 +162,7 @@
     <Content Include="Account\Admin\ManageUsers.aspx" />
     <Content Include="Account\Forgot.aspx" />
     <Content Include="Account\Lockout.aspx" />
+    <Content Include="Account\scotiabank_logo.png" />
     <Content Include="Content\Error.css" />
     <Content Include="Content\Main.css" />
     <Content Include="Images\BNS-header.jpg" />
