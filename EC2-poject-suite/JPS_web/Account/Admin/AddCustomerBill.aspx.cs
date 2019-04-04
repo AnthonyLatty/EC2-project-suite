@@ -14,7 +14,7 @@ namespace JPS_web.Account.Admin
 
         public void AddBillForm_InsertItem()
         {
-            var item = new CustomerBill();
+            var item = new Bill();
 
             TryUpdateModel(item);
             if (ModelState.IsValid)
@@ -22,7 +22,7 @@ namespace JPS_web.Account.Admin
                 // Save changes here
                 using (JPSContext db = new JPSContext())
                 {
-                    db.CustomerBills.Add(item);
+                    db.Bills.Add(item);
                     db.SaveChanges();
                 }
             }

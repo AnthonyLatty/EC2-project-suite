@@ -7,6 +7,7 @@ namespace JPS_web.Models
     /// </summary>
     public class JPSContext : DbContext
     {
-        public DbSet<CustomerBill> CustomerBills { get; set; }
+        public DbSet<Bill> Bills { get; set; }
+        public DbSet<Customer> Customers { get; set; }
     }
 }

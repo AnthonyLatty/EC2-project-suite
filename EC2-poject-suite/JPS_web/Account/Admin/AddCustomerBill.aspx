@@ -10,7 +10,7 @@
                 <asp:FormView
                     runat="server"
                     ID="addBillForm"
-                    ItemType="JPS_web.Models.CustomerBill"
+                    ItemType="JPS_web.Models.Bill"
                     DefaultMode="Insert"
                     InsertMethod="AddBillForm_InsertItem"
                     RenderOuterTable="true"

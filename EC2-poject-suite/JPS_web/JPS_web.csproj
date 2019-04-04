@@ -593,8 +593,17 @@
     <Compile Include="Migrations\201903232221390_AddBillStatusColumn.Designer.cs">
       <DependentUpon>201903232221390_AddBillStatusColumn.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904042012170_EditCustomerModel.cs" />
+    <Compile Include="Migrations\201904042012170_EditCustomerModel.Designer.cs">
+      <DependentUpon>201904042012170_EditCustomerModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904042211072_UpdateCustomerProperties.cs" />
+    <Compile Include="Migrations\201904042211072_UpdateCustomerProperties.Designer.cs">
+      <DependentUpon>201904042211072_UpdateCustomerProperties.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\CustomerBill.cs" />
+    <Compile Include="Models\Bill.cs" />
+    <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\JPSContext.cs" />
     <Compile Include="Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>
@@ -706,6 +715,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903232221390_AddBillStatusColumn.resx">
       <DependentUpon>201903232221390_AddBillStatusColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904042012170_EditCustomerModel.resx">
+      <DependentUpon>201904042012170_EditCustomerModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904042211072_UpdateCustomerProperties.resx">
+      <DependentUpon>201904042211072_UpdateCustomerProperties.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

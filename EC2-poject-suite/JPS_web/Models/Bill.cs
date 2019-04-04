@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace JPS_web.Models
 {
-    public class CustomerBill
+    public class Bill
     {
         [Key, Display(Name = "Bill ID")]
         [Editable(false)]
@@ -19,11 +19,14 @@ namespace JPS_web.Models
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:d}")]
         public DateTime BillDueDate { get; set; }
 
-        [Required, Display(Name = "Premises No.")]
-        public int PremisesNumber { get; set; }
-
+        // Navigation Property
         [Required, Display(Name = "Customer ID")]
         public int CustomerId { get; set; }
+        public Customer Customer { get; set; }
+
+        // Premises No. for Customers with multiple Premises
+        [Required, Display(Name = "Premises No.")]
+        public int PremisesNumber { get; set; }
 
         [EnumDataType(typeof(BillStatus)), Display(Name = "Bill Status")]
         public BillStatus Status { get; set; }

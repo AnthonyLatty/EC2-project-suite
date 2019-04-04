@@ -25,7 +25,7 @@
                     DataKeyNames="BillId"
                     AllowPaging="true"
                     PageSize="5"
-                    ItemType="JPS_web.Models.CustomerBill"
+                    ItemType="JPS_web.Models.Bill"
                     runat="server"
                     AutoGenerateColumns="false"
                     ShowFooter="false"

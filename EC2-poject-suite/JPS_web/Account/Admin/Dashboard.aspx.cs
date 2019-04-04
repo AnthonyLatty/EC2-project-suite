@@ -26,10 +26,10 @@ namespace JPS_web.Account.Admin
         //     int startRowIndex
         //     out int totalRowCount
         //     string sortByExpression
-        public IQueryable<CustomerBill> CustomerBill_GetData([Control] BillStatus? displayBillStatus)
+        public IQueryable<Bill> CustomerBill_GetData([Control] BillStatus? displayBillStatus)
         {
             JPSContext db = new JPSContext();
-            IQueryable<CustomerBill> query = db.CustomerBills.OrderBy(a => a.BillId);
+            IQueryable<Bill> query = db.Bills.Include("Customer").OrderBy(s => s.BillId);
 
             if (displayBillStatus != null)
             {
@@ -43,9 +43,9 @@ namespace JPS_web.Account.Admin
         public void CustomerBill_UpdateItem(int billId)
         {
             var db = new JPSContext();
-            CustomerBill item = null;
+            Bill item = null;
             // Load the item here, e.g. item = MyDataLayer.Find(id);
-            item = db.CustomerBills.Find(billId);
+            item = db.Bills.Find(billId);
             if (item == null)
             {
                 // The item wasn't found
@@ -65,7 +65,7 @@ namespace JPS_web.Account.Admin
         {
             var db = new JPSContext();
 
-            var item = new CustomerBill { BillId = billId };
+            var item = new Bill { BillId = billId };
             db.Entry(item).State = EntityState.Deleted;
             try
             {
