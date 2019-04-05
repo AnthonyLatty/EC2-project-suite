@@ -29,6 +29,8 @@
                                 <div class="form-group">
                                     <h6>Customer ID</h6>
                                     <asp:DynamicControl runat="server" DataField="CustomerId" Mode="Insert" />
+                                    <%--<asp:DropDownList ID="ddlCustomerID" runat="server" DataSourceID="CustomerIDSqlDataSource" DataTextField="Id" DataValueField="Id" />
+                                    <asp:SqlDataSource runat="server" ID="CustomerIDSqlDataSource" ConnectionString='<%$ ConnectionStrings:JPSContext %>' SelectCommand="SELECT [Id] FROM [Customers]">--%>
                                 </div>
                                 <div class="form-group">
                                     <h6>Premises No.</h6>

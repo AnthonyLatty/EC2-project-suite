@@ -8,12 +8,12 @@ namespace JPS_web.Models
         [Key]
         [Display(Name = "Customer ID")]
         [Editable(false)]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int CustomerId { get; set; }
-
-        // Reference ID for ASP User and call it Email
-        [Display(Name = "Email")]
+        // Reference ID from ASP user email
         public string Id { get; set; }
+
+        [Display(Name = "Email")]
+        [Editable(false)]
+        public string Email { get; set; }
 
         [Required(ErrorMessage = "7 digits for Premises No."), Display(Name = "Premises No.")]
         [MinLength(7),MaxLength(7)]

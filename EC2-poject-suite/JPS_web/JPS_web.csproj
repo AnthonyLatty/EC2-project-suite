@@ -621,6 +621,30 @@
     <Compile Include="Migrations\201904050028267_MakeCustomerIdInBillManual.Designer.cs">
       <DependentUpon>201904050028267_MakeCustomerIdInBillManual.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904052032535_RemoveCustomerIDField.cs" />
+    <Compile Include="Migrations\201904052032535_RemoveCustomerIDField.Designer.cs">
+      <DependentUpon>201904052032535_RemoveCustomerIDField.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904052035595_ChangeCustomerIdDataType.cs" />
+    <Compile Include="Migrations\201904052035595_ChangeCustomerIdDataType.Designer.cs">
+      <DependentUpon>201904052035595_ChangeCustomerIdDataType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904052058555_RemoveIdentityFromCustomer.cs" />
+    <Compile Include="Migrations\201904052058555_RemoveIdentityFromCustomer.Designer.cs">
+      <DependentUpon>201904052058555_RemoveIdentityFromCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904052108008_AddEmailToCustomer.cs" />
+    <Compile Include="Migrations\201904052108008_AddEmailToCustomer.Designer.cs">
+      <DependentUpon>201904052108008_AddEmailToCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904052130453_AddEmailToCustomerBill.cs" />
+    <Compile Include="Migrations\201904052130453_AddEmailToCustomerBill.Designer.cs">
+      <DependentUpon>201904052130453_AddEmailToCustomerBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904052220204_RemoveEmailFromBill.cs" />
+    <Compile Include="Migrations\201904052220204_RemoveEmailFromBill.Designer.cs">
+      <DependentUpon>201904052220204_RemoveEmailFromBill.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Bill.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -756,6 +780,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904050028267_MakeCustomerIdInBillManual.resx">
       <DependentUpon>201904050028267_MakeCustomerIdInBillManual.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904052032535_RemoveCustomerIDField.resx">
+      <DependentUpon>201904052032535_RemoveCustomerIDField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904052035595_ChangeCustomerIdDataType.resx">
+      <DependentUpon>201904052035595_ChangeCustomerIdDataType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904052058555_RemoveIdentityFromCustomer.resx">
+      <DependentUpon>201904052058555_RemoveIdentityFromCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904052108008_AddEmailToCustomer.resx">
+      <DependentUpon>201904052108008_AddEmailToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904052130453_AddEmailToCustomerBill.resx">
+      <DependentUpon>201904052130453_AddEmailToCustomerBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904052220204_RemoveEmailFromBill.resx">
+      <DependentUpon>201904052220204_RemoveEmailFromBill.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -21,7 +21,7 @@ namespace JPS_web.Models
 
         // Navigation Property
         [Required, Display(Name = "Customer ID")]
-        public int CustomerId { get; set; }
+        public string CustomerId { get; set; }
         public Customer Customer { get; set; }
 
         // Premises No. for Customers with multiple Premises

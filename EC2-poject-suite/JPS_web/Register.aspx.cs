@@ -36,7 +36,8 @@ namespace JPS_web.Account
             {
                 Models.Customer customer = new Models.Customer
                 {
-                    Id = Email.Text,
+                    Id = user.Id,
+                    Email = Email.Text,
                     PremisesNumber = PremisesNumber.Text
                 };
 

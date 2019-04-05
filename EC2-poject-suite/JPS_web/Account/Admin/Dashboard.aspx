@@ -6,9 +6,7 @@
         <div class="row">
             <div class="col-md-12">
                 <h3>Manage Customer's Bill</h3>
-                <asp:ValidationSummary ShowModelStateErrors="true" runat="server" ForeColor="Red" />
-                <br />
-                <br />
+                <asp:ValidationSummary ShowModelStateErrors="true" runat="server" CssClass="alert alert-danger" />
                 <asp:Label runat="server" Text="Filter Bill Status:" />
                 <asp:DropDownList runat="server" AutoPostBack="true" ID="DisplayBillStatus">
                     <asp:ListItem Text="All" Value="" />
@@ -64,8 +62,8 @@
                     UseAccessibleHeader="true"
                     GridLines="None">
                     <Columns>
-                        <asp:DynamicField DataField="CustomerId" />
                         <asp:DynamicField DataField="Id" />
+                        <asp:DynamicField DataField="Email" />
                         <asp:DynamicField DataField="PremisesNumber" />
                     </Columns>
                 </asp:GridView>

@@ -74,7 +74,7 @@ namespace JPS_web.Account.Admin
         public IQueryable<Models.Customer> CurrentCustomerGridView_GetData()
         {
             JPSContext jPSContext = new JPSContext();
-            IQueryable<Models.Customer> customers = jPSContext.Customers.OrderBy(a => a.CustomerId);
+            IQueryable<Models.Customer> customers = jPSContext.Customers.OrderBy(a => a.Id);
 
             return customers;
         }
