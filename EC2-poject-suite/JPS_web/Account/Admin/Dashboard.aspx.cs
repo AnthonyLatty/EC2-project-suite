@@ -20,16 +20,10 @@ namespace JPS_web.Account.Admin
 
         }
 
-        // The return type can be changed to IEnumerable, however to support
-        // paging and sorting, the following parameters must be added:
-        //     int maximumRows
-        //     int startRowIndex
-        //     out int totalRowCount
-        //     string sortByExpression
         public IQueryable<Bill> CustomerBill_GetData([Control] BillStatus? displayBillStatus)
         {
             JPSContext db = new JPSContext();
-            IQueryable<Bill> query = db.Bills.Include("Customer").OrderBy(s => s.BillId);
+            IQueryable<Bill> query = db.Bills.OrderBy(s => s.BillId);
 
             if (displayBillStatus != null)
             {
@@ -75,6 +69,14 @@ namespace JPS_web.Account.Admin
             {
                 ModelState.AddModelError("", string.Format("Item with id {0} no longer exists in the database.", billId));
             }
+        }
+
+        public IQueryable<Models.Customer> CurrentCustomerGridView_GetData()
+        {
+            JPSContext jPSContext = new JPSContext();
+            IQueryable<Models.Customer> customers = jPSContext.Customers.OrderBy(a => a.CustomerId);
+
+            return customers;
         }
     }
 }

@@ -601,6 +601,26 @@
     <Compile Include="Migrations\201904042211072_UpdateCustomerProperties.Designer.cs">
       <DependentUpon>201904042211072_UpdateCustomerProperties.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904042230004_ModifyBillModel.cs" />
+    <Compile Include="Migrations\201904042230004_ModifyBillModel.Designer.cs">
+      <DependentUpon>201904042230004_ModifyBillModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904042326035_AdjustModels.cs" />
+    <Compile Include="Migrations\201904042326035_AdjustModels.Designer.cs">
+      <DependentUpon>201904042326035_AdjustModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904050007104_UpdateRelationshipBetweenModels.cs" />
+    <Compile Include="Migrations\201904050007104_UpdateRelationshipBetweenModels.Designer.cs">
+      <DependentUpon>201904050007104_UpdateRelationshipBetweenModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904050022477_MakeCustomerIdInBillAutoGen.cs" />
+    <Compile Include="Migrations\201904050022477_MakeCustomerIdInBillAutoGen.Designer.cs">
+      <DependentUpon>201904050022477_MakeCustomerIdInBillAutoGen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904050028267_MakeCustomerIdInBillManual.cs" />
+    <Compile Include="Migrations\201904050028267_MakeCustomerIdInBillManual.Designer.cs">
+      <DependentUpon>201904050028267_MakeCustomerIdInBillManual.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Bill.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -721,6 +741,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904042211072_UpdateCustomerProperties.resx">
       <DependentUpon>201904042211072_UpdateCustomerProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904042230004_ModifyBillModel.resx">
+      <DependentUpon>201904042230004_ModifyBillModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904042326035_AdjustModels.resx">
+      <DependentUpon>201904042326035_AdjustModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904050007104_UpdateRelationshipBetweenModels.resx">
+      <DependentUpon>201904050007104_UpdateRelationshipBetweenModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904050022477_MakeCustomerIdInBillAutoGen.resx">
+      <DependentUpon>201904050022477_MakeCustomerIdInBillAutoGen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904050028267_MakeCustomerIdInBillManual.resx">
+      <DependentUpon>201904050028267_MakeCustomerIdInBillManual.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

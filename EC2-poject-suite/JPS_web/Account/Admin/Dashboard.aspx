@@ -48,6 +48,28 @@
                 <br />
                 <asp:HyperLink NavigateUrl="AddCustomerBill.aspx" Text="Add New Customer Bill" CssClass="btn btn-primary" runat="server" />
             </div>
+            <div class="col-md-12">
+                <h3>Current Customer's</h3>
+                <asp:GridView 
+                    ID="CurrentCustomerGridView" 
+                    DataKeyNames="Id" 
+                    ItemType="JPS_web.Models.Customer" 
+                    SelectMethod="CurrentCustomerGridView_GetData" 
+                    AutoGenerateColumns="false"
+                    PageSize="5"
+                    AllowPaging="true"
+                    ShowFooter="false"
+                    runat="server" 
+                    CssClass="table table-hover table-bordered"
+                    UseAccessibleHeader="true"
+                    GridLines="None">
+                    <Columns>
+                        <asp:DynamicField DataField="CustomerId" />
+                        <asp:DynamicField DataField="Id" />
+                        <asp:DynamicField DataField="PremisesNumber" />
+                    </Columns>
+                </asp:GridView>
+            </div>
         </div>
     </div>
 
