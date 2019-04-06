@@ -53,7 +53,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="nvarchar(max)" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar(max)" Nullable="false" />
     <Property Name="PremisesNumber" Type="nvarchar" Nullable="false" MaxLength="7" />
   </EntityType>
   <EntityType Name="Transactions">
@@ -166,7 +166,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Email" Type="String" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" />
           <Property Name="PremisesNumber" Type="String" Nullable="false" MaxLength="7" />
           <NavigationProperty Name="Bills" Relationship="JPSModel.CustomerBill" FromRole="Customer" ToRole="Bill" />
           <NavigationProperty Name="Transactions" Relationship="JPSModel.CustomerTransaction" FromRole="Customer" ToRole="Transaction" />
@@ -244,7 +244,7 @@
       <EntityTypeMapping TypeName="IsTypeOf(JPSModel.Customer)">
         <MappingFragment StoreEntitySet="Customers">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
           <ScalarProperty Name="PremisesNumber" ColumnName="PremisesNumber" />
         </MappingFragment>
       </EntityTypeMapping>

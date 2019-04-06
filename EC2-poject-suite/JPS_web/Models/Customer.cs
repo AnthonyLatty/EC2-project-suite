@@ -11,9 +11,9 @@ namespace JPS_web.Models
         // Reference ID from ASP user email
         public string Id { get; set; }
 
-        [Display(Name = "Email")]
+        [Display(Name = "UserName")]
         [Editable(false)]
-        public string Email { get; set; }
+        public string UserName { get; set; }
 
         [Required(ErrorMessage = "7 digits for Premises No."), Display(Name = "Premises No.")]
         [MinLength(7),MaxLength(7)]

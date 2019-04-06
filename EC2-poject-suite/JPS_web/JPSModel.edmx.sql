@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 04/05/2019 23:03:30
+-- Date Created: 04/05/2019 23:29:35
 -- Generated from EDMX file: C:\Users\mlatt\Desktop\EC2-project-suite\EC2-poject-suite\JPS_web\JPSModel.edmx
 -- --------------------------------------------------
 
@@ -75,7 +75,7 @@ GO
 -- Creating table 'Customers'
 CREATE TABLE [dbo].[Customers] (
     [Id] nvarchar(max)  NOT NULL,
-    [Email] nvarchar(max)  NOT NULL,
+    [UserName] nvarchar(max)  NOT NULL,
     [PremisesNumber] nvarchar(7)  NOT NULL
 );
 GO
