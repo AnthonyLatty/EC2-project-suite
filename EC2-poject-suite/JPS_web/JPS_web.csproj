@@ -165,7 +165,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Account\Admin\AddCustomerBill.aspx" />
     <Content Include="Account\Admin\Dashboard.aspx" />
     <Content Include="Account\Customer\ManageBill.aspx" />
     <Content Include="Account\Forgot.aspx" />
@@ -271,6 +270,17 @@
     <Content Include="DynamicData\FieldTemplates\Url_Edit.ascx" />
     <Content Include="Images\error_emoji.png" />
     <Content Include="Images\JPS-Man.png" />
+    <Content Include="JPSModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>JPSModel.Context.cs</LastGenOutput>
+      <DependentUpon>JPSModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="JPSModel.edmx.sql" />
+    <Content Include="JPSModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>JPSModel.cs</LastGenOutput>
+      <DependentUpon>JPSModel.edmx</DependentUpon>
+    </Content>
     <Content Include="Login.aspx" />
     <Content Include="Account\Manage.aspx" />
     <Content Include="Account\ManagePassword.aspx" />
@@ -305,6 +315,13 @@
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="libman.json" />
+    <EntityDeploy Include="JPSModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>JPSModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="JPSModel.edmx.diagram">
+      <DependentUpon>JPSModel.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Images\JPS-official-logo.png" />
     <Content Include="Images\Powering_tomorrow_header.jpg" />
@@ -360,13 +377,6 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Account\Admin\AddCustomerBill.aspx.cs">
-      <DependentUpon>AddCustomerBill.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\Admin\AddCustomerBill.aspx.designer.cs">
-      <DependentUpon>AddCustomerBill.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Account\Admin\Dashboard.aspx.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -556,6 +566,21 @@
     <Compile Include="DynamicData\FieldTemplates\Url_Edit.ascx.designer.cs">
       <DependentUpon>Url_Edit.ascx</DependentUpon>
     </Compile>
+    <Compile Include="JPSModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JPSModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="JPSModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JPSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="JPSModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JPSModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -645,8 +670,11 @@
     <Compile Include="Migrations\201904052220204_RemoveEmailFromBill.Designer.cs">
       <DependentUpon>201904052220204_RemoveEmailFromBill.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904060154345_RemoveUnusedTables.cs" />
+    <Compile Include="Migrations\201904060154345_RemoveUnusedTables.Designer.cs">
+      <DependentUpon>201904060154345_RemoveUnusedTables.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Bill.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\JPSContext.cs" />
     <Compile Include="Register.aspx.cs">
@@ -798,6 +826,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904052220204_RemoveEmailFromBill.resx">
       <DependentUpon>201904052220204_RemoveEmailFromBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904060154345_RemoveUnusedTables.resx">
+      <DependentUpon>201904060154345_RemoveUnusedTables.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
