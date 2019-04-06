@@ -13,22 +13,22 @@ namespace JPS_web.Account.Admin {
     public partial class Dashboard {
         
         /// <summary>
-        /// CustomersGridView control.
+        /// DisplayBillStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView CustomersGridView;
+        protected global::System.Web.UI.WebControls.DropDownList DisplayBillStatus;
         
         /// <summary>
-        /// BillsSqlDataSource control.
+        /// GridViewCustomerBill control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource BillsSqlDataSource;
+        protected global::System.Web.UI.WebControls.GridView GridViewCustomerBill;
         
         /// <summary>
         /// CurrentCustomersGridView control.
