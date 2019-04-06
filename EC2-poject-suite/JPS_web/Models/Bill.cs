@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Web;
 
 namespace JPS_web.Models
 {
@@ -14,10 +11,13 @@ namespace JPS_web.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int BillId { get; set; }
 
-        //Customer Navigation Property
+        // One to Many mapping to Customer Table
         [Required, Display(Name = "Customer Email")]
         public string Id { get; set; }
         public Customer Customer { get; set; }
+
+        // One to One mapping to Transaction Table
+        public virtual Transaction Transaction { get; set; }
 
         [Required, Display(Name = "Create Date")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:d}")]

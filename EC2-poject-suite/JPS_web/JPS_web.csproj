@@ -656,10 +656,15 @@
     <Compile Include="Migrations\201904060656389_AddBillTable.Designer.cs">
       <DependentUpon>201904060656389_AddBillTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904061852519_AddTransactionTable.cs" />
+    <Compile Include="Migrations\201904061852519_AddTransactionTable.Designer.cs">
+      <DependentUpon>201904061852519_AddTransactionTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Bill.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\JPSContext.cs" />
+    <Compile Include="Models\Transaction.cs" />
     <Compile Include="Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -818,6 +823,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904060656389_AddBillTable.resx">
       <DependentUpon>201904060656389_AddBillTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904061852519_AddTransactionTable.resx">
+      <DependentUpon>201904061852519_AddTransactionTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
