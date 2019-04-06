@@ -67,5 +67,13 @@ namespace JPS_web.Account.Admin
             }
         }
 
+       
+        public IQueryable<Models.Customer> CurrentCustomersGridView_GetData()
+        {
+            JPSContext context = new JPSContext();
+            IQueryable<Models.Customer> customers = context.Customers;
+
+            return customers;
+        }
     }
 }
