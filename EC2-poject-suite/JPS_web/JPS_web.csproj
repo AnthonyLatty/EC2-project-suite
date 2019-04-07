@@ -168,6 +168,7 @@
     <Content Include="Account\Admin\AddCustomerBill.aspx" />
     <Content Include="Account\Admin\Dashboard.aspx" />
     <Content Include="Account\Customer\ManageBill.aspx" />
+    <Content Include="Account\Customer\Payment.aspx" />
     <Content Include="Account\Forgot.aspx" />
     <Content Include="Account\JPS-official-logo.png" />
     <Content Include="Account\Lockout.aspx" />
@@ -271,6 +272,8 @@
     <Content Include="DynamicData\FieldTemplates\Url_Edit.ascx" />
     <Content Include="Images\error_emoji.png" />
     <Content Include="Images\JPS-Man.png" />
+    <Content Include="Images\PaymentBill.png" />
+    <Content Include="Images\PendingBills.jpg" />
     <Content Include="Login.aspx" />
     <Content Include="Account\Manage.aspx" />
     <Content Include="Account\ManagePassword.aspx" />
@@ -379,6 +382,13 @@
     </Compile>
     <Compile Include="Account\Customer\ManageBill.aspx.designer.cs">
       <DependentUpon>ManageBill.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Customer\Payment.aspx.cs">
+      <DependentUpon>Payment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Customer\Payment.aspx.designer.cs">
+      <DependentUpon>Payment.aspx</DependentUpon>
     </Compile>
     <Compile Include="Account\Forgot.aspx.cs">
       <DependentUpon>Forgot.aspx</DependentUpon>
