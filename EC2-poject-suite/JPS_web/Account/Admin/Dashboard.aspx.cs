@@ -1,10 +1,10 @@
-﻿using System;
+﻿using JPS_web.Models;
+using System;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Web.ModelBinding;
 using System.Web.UI;
-using JPS_web.Models;
 
 namespace JPS_web.Account.Admin
 {
@@ -12,28 +12,18 @@ namespace JPS_web.Account.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-        }
-
-        protected void CustomerBill_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
         }
 
-        // The return type can be changed to IEnumerable, however to support
-        // paging and sorting, the following parameters must be added:
-        //     int maximumRows
-        //     int startRowIndex
-        //     out int totalRowCount
-        //     string sortByExpression
-        public IQueryable<CustomerBill> CustomerBill_GetData([Control] BillStatus? displayBillStatus)
+        
+        public IQueryable<Bill> CustomerBill_GetData([Control] BillStatus? displayBillStatus)
         {
             JPSContext db = new JPSContext();
-            IQueryable<CustomerBill> query = db.CustomerBills.OrderBy(a => a.BillId);
+            IQueryable<Bill> query = db.Bills.OrderBy(a => a.BillId);
 
             if (displayBillStatus != null)
             {
-                query = query.Where(s => s.Status == displayBillStatus);
+                query = query.Where(s => s.BillStatus == displayBillStatus);
             }
 
             return query;
@@ -43,9 +33,9 @@ namespace JPS_web.Account.Admin
         public void CustomerBill_UpdateItem(int billId)
         {
             var db = new JPSContext();
-            CustomerBill item = null;
+            Bill item = null;
             // Load the item here, e.g. item = MyDataLayer.Find(id);
-            item = db.CustomerBills.Find(billId);
+            item = db.Bills.Find(billId);
             if (item == null)
             {
                 // The item wasn't found
@@ -65,7 +55,7 @@ namespace JPS_web.Account.Admin
         {
             var db = new JPSContext();
 
-            var item = new CustomerBill { BillId = billId };
+            var item = new Bill { BillId = billId };
             db.Entry(item).State = EntityState.Deleted;
             try
             {
@@ -75,6 +65,15 @@ namespace JPS_web.Account.Admin
             {
                 ModelState.AddModelError("", string.Format("Item with id {0} no longer exists in the database.", billId));
             }
+        }
+
+       
+        public IQueryable<Models.Customer> CurrentCustomersGridView_GetData()
+        {
+            JPSContext context = new JPSContext();
+            IQueryable<Models.Customer> customers = context.Customers;
+
+            return customers;
         }
     }
 }

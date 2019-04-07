@@ -1,11 +1,11 @@
-﻿using System;
+﻿using JPS_web.Models;
+using System;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using JPS_web.Models;
 
 namespace JPS_web.Account.Admin
 {
-    public partial class AddBill : Page
+    public partial class AddCustomerBill : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -14,7 +14,7 @@ namespace JPS_web.Account.Admin
 
         public void AddBillForm_InsertItem()
         {
-            var item = new CustomerBill();
+            var item = new Bill();
 
             TryUpdateModel(item);
             if (ModelState.IsValid)
@@ -22,7 +22,7 @@ namespace JPS_web.Account.Admin
                 // Save changes here
                 using (JPSContext db = new JPSContext())
                 {
-                    db.CustomerBills.Add(item);
+                    db.Bills.Add(item);
                     db.SaveChanges();
                 }
             }

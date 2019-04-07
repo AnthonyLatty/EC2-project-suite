@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AddCustomerBill.aspx.cs" MasterPageFile="~/Site.Master" Inherits="JPS_web.Account.Admin.AddBill" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AddCustomerBill.aspx.cs" MasterPageFile="~/Site.Master" Inherits="JPS_web.Account.Admin.AddCustomerBill" %>
 
 <asp:Content runat="server" ContentPlaceHolderID="MainContent" ID="BodyContent">
 
@@ -10,7 +10,7 @@
                 <asp:FormView
                     runat="server"
                     ID="addBillForm"
-                    ItemType="JPS_web.Models.CustomerBill"
+                    ItemType="JPS_web.Models.Bill"
                     DefaultMode="Insert"
                     InsertMethod="AddBillForm_InsertItem"
                     RenderOuterTable="true"

@@ -168,6 +168,7 @@
     <Content Include="Account\Admin\AddCustomerBill.aspx" />
     <Content Include="Account\Admin\Dashboard.aspx" />
     <Content Include="Account\Customer\ManageBill.aspx" />
+    <Content Include="Account\Customer\Payment.aspx" />
     <Content Include="Account\Forgot.aspx" />
     <Content Include="Account\JPS-official-logo.png" />
     <Content Include="Account\Lockout.aspx" />
@@ -271,6 +272,8 @@
     <Content Include="DynamicData\FieldTemplates\Url_Edit.ascx" />
     <Content Include="Images\error_emoji.png" />
     <Content Include="Images\JPS-Man.png" />
+    <Content Include="Images\PaymentBill.png" />
+    <Content Include="Images\PendingBills.jpg" />
     <Content Include="Login.aspx" />
     <Content Include="Account\Manage.aspx" />
     <Content Include="Account\ManagePassword.aspx" />
@@ -304,7 +307,6 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
-    <Content Include="libman.json" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Images\JPS-official-logo.png" />
     <Content Include="Images\Powering_tomorrow_header.jpg" />
@@ -380,6 +382,13 @@
     </Compile>
     <Compile Include="Account\Customer\ManageBill.aspx.designer.cs">
       <DependentUpon>ManageBill.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Customer\Payment.aspx.cs">
+      <DependentUpon>Payment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Customer\Payment.aspx.designer.cs">
+      <DependentUpon>Payment.aspx</DependentUpon>
     </Compile>
     <Compile Include="Account\Forgot.aspx.cs">
       <DependentUpon>Forgot.aspx</DependentUpon>
@@ -593,9 +602,79 @@
     <Compile Include="Migrations\201903232221390_AddBillStatusColumn.Designer.cs">
       <DependentUpon>201903232221390_AddBillStatusColumn.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904042012170_EditCustomerModel.cs" />
+    <Compile Include="Migrations\201904042012170_EditCustomerModel.Designer.cs">
+      <DependentUpon>201904042012170_EditCustomerModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904042211072_UpdateCustomerProperties.cs" />
+    <Compile Include="Migrations\201904042211072_UpdateCustomerProperties.Designer.cs">
+      <DependentUpon>201904042211072_UpdateCustomerProperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904042230004_ModifyBillModel.cs" />
+    <Compile Include="Migrations\201904042230004_ModifyBillModel.Designer.cs">
+      <DependentUpon>201904042230004_ModifyBillModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904042326035_AdjustModels.cs" />
+    <Compile Include="Migrations\201904042326035_AdjustModels.Designer.cs">
+      <DependentUpon>201904042326035_AdjustModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904050007104_UpdateRelationshipBetweenModels.cs" />
+    <Compile Include="Migrations\201904050007104_UpdateRelationshipBetweenModels.Designer.cs">
+      <DependentUpon>201904050007104_UpdateRelationshipBetweenModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904050022477_MakeCustomerIdInBillAutoGen.cs" />
+    <Compile Include="Migrations\201904050022477_MakeCustomerIdInBillAutoGen.Designer.cs">
+      <DependentUpon>201904050022477_MakeCustomerIdInBillAutoGen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904050028267_MakeCustomerIdInBillManual.cs" />
+    <Compile Include="Migrations\201904050028267_MakeCustomerIdInBillManual.Designer.cs">
+      <DependentUpon>201904050028267_MakeCustomerIdInBillManual.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904052032535_RemoveCustomerIDField.cs" />
+    <Compile Include="Migrations\201904052032535_RemoveCustomerIDField.Designer.cs">
+      <DependentUpon>201904052032535_RemoveCustomerIDField.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904052035595_ChangeCustomerIdDataType.cs" />
+    <Compile Include="Migrations\201904052035595_ChangeCustomerIdDataType.Designer.cs">
+      <DependentUpon>201904052035595_ChangeCustomerIdDataType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904052058555_RemoveIdentityFromCustomer.cs" />
+    <Compile Include="Migrations\201904052058555_RemoveIdentityFromCustomer.Designer.cs">
+      <DependentUpon>201904052058555_RemoveIdentityFromCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904052108008_AddEmailToCustomer.cs" />
+    <Compile Include="Migrations\201904052108008_AddEmailToCustomer.Designer.cs">
+      <DependentUpon>201904052108008_AddEmailToCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904052130453_AddEmailToCustomerBill.cs" />
+    <Compile Include="Migrations\201904052130453_AddEmailToCustomerBill.Designer.cs">
+      <DependentUpon>201904052130453_AddEmailToCustomerBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904052220204_RemoveEmailFromBill.cs" />
+    <Compile Include="Migrations\201904052220204_RemoveEmailFromBill.Designer.cs">
+      <DependentUpon>201904052220204_RemoveEmailFromBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904060154345_RemoveUnusedTables.cs" />
+    <Compile Include="Migrations\201904060154345_RemoveUnusedTables.Designer.cs">
+      <DependentUpon>201904060154345_RemoveUnusedTables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904060423240_ChangeCustomerDatatype.cs" />
+    <Compile Include="Migrations\201904060423240_ChangeCustomerDatatype.Designer.cs">
+      <DependentUpon>201904060423240_ChangeCustomerDatatype.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904060656389_AddBillTable.cs" />
+    <Compile Include="Migrations\201904060656389_AddBillTable.Designer.cs">
+      <DependentUpon>201904060656389_AddBillTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904061852519_AddTransactionTable.cs" />
+    <Compile Include="Migrations\201904061852519_AddTransactionTable.Designer.cs">
+      <DependentUpon>201904061852519_AddTransactionTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\CustomerBill.cs" />
+    <Compile Include="Models\Bill.cs" />
+    <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\JPSContext.cs" />
+    <Compile Include="Models\Transaction.cs" />
     <Compile Include="Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -706,6 +785,57 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903232221390_AddBillStatusColumn.resx">
       <DependentUpon>201903232221390_AddBillStatusColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904042012170_EditCustomerModel.resx">
+      <DependentUpon>201904042012170_EditCustomerModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904042211072_UpdateCustomerProperties.resx">
+      <DependentUpon>201904042211072_UpdateCustomerProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904042230004_ModifyBillModel.resx">
+      <DependentUpon>201904042230004_ModifyBillModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904042326035_AdjustModels.resx">
+      <DependentUpon>201904042326035_AdjustModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904050007104_UpdateRelationshipBetweenModels.resx">
+      <DependentUpon>201904050007104_UpdateRelationshipBetweenModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904050022477_MakeCustomerIdInBillAutoGen.resx">
+      <DependentUpon>201904050022477_MakeCustomerIdInBillAutoGen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904050028267_MakeCustomerIdInBillManual.resx">
+      <DependentUpon>201904050028267_MakeCustomerIdInBillManual.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904052032535_RemoveCustomerIDField.resx">
+      <DependentUpon>201904052032535_RemoveCustomerIDField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904052035595_ChangeCustomerIdDataType.resx">
+      <DependentUpon>201904052035595_ChangeCustomerIdDataType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904052058555_RemoveIdentityFromCustomer.resx">
+      <DependentUpon>201904052058555_RemoveIdentityFromCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904052108008_AddEmailToCustomer.resx">
+      <DependentUpon>201904052108008_AddEmailToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904052130453_AddEmailToCustomerBill.resx">
+      <DependentUpon>201904052130453_AddEmailToCustomerBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904052220204_RemoveEmailFromBill.resx">
+      <DependentUpon>201904052220204_RemoveEmailFromBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904060154345_RemoveUnusedTables.resx">
+      <DependentUpon>201904060154345_RemoveUnusedTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904060423240_ChangeCustomerDatatype.resx">
+      <DependentUpon>201904060423240_ChangeCustomerDatatype.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904060656389_AddBillTable.resx">
+      <DependentUpon>201904060656389_AddBillTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904061852519_AddTransactionTable.resx">
+      <DependentUpon>201904061852519_AddTransactionTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

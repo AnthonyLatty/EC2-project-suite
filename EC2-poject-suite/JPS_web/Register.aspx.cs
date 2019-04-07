@@ -5,6 +5,8 @@ using System.Web.UI;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
+using JPS_web.Models;
+using Microsoft.AspNet.Identity.Owin;
 
 namespace JPS_web.Account
 {
@@ -20,33 +22,37 @@ namespace JPS_web.Account
                 roleManager.Create(new IdentityRole("Customer"));
             }
 
-            // Create user
-            var userStore = new UserStore<IdentityUser>();
-            var userManager = new UserManager<IdentityUser>(userStore);
-            var user = new IdentityUser
+            var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            var signInManager = Context.GetOwinContext().Get<ApplicationSignInManager>();
+            var user = new ApplicationUser() { UserName = Email.Text, Email = Email.Text };
+            IdentityResult result = manager.Create(user, Password.Text);
+            // Assign user to role
+            if (!manager.IsInRole(manager.FindByEmail(user.Email).Id, "Customer"))
             {
-                UserName = Email.Text,
-                Email = Email.Text
-            };
-
-            // Add user to role
-            var result = userManager.Create(user, Password.Text);
-            if (!userManager.IsInRole(userManager.FindByEmail(user.Email).Id, "Customer"))
-            {
-                userManager.AddToRole(userManager.FindByEmail(user.Email).Id, "Customer");
+                manager.AddToRole(manager.FindByEmail(user.Email).Id, "Customer");
             }
 
             if (result.Succeeded)
             {
-                var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
-                var userIdentity = userManager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
-                authenticationManager.SignIn(new AuthenticationProperties() { }, userIdentity);
+                Models.Customer customer = new Models.Customer
+                {
+                    Id = Email.Text,
+                    UserName = UserName.Text,
+                    PremisesNumber = PremisesNumber.Text
+                };
+
+                var jPSContext = new JPSContext();
+                jPSContext.Customers.Add(customer);
+                jPSContext.SaveChanges();
+
+                signInManager.SignIn(user, isPersistent: false, rememberBrowser: false);
                 IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
             }
-            else 
+            else
             {
                 ErrorMessage.Text = result.Errors.FirstOrDefault();
             }
+
         }
     }
 }
