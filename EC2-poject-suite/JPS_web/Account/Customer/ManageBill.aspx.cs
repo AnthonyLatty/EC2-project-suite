@@ -111,7 +111,7 @@ namespace JPS_web.Account.Customer
                     customer.SaveChanges();
 
                 }
-                Response.Redirect("Manage.bill.aspx");
+                Response.Redirect("ManageBill.aspx");
             }
             else if (first_four == "4001")
             {

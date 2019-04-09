@@ -6,6 +6,7 @@
 -- Generated from EDMX file: C:\Users\Kaheem\Documents\EC2-project-suite\EC2-poject-suite\JPS_web\JPSmodel.edmx
 -- --------------------------------------------------
 
+CREATE DATABASE JPS_web
 SET QUOTED_IDENTIFIER OFF;
 GO
 USE [JPS_web];
@@ -62,6 +63,12 @@ CREATE TABLE [dbo].[Customers] (
     [UserName] nvarchar(max)  NULL,
     [FirstName] nvarchar(50)  NULL,
     [LastName] nvarchar(50)  NULL
+);
+GO
+CREATE TABLE [dbo].[BillStatus] (
+    StatusID int not null primary key,
+	StatusName nvarchar(50) not null
+
 );
 GO
 

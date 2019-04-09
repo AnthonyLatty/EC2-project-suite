@@ -46,13 +46,19 @@ namespace NCB_web.Teller
                 using (BNS_webEntities1 customer = new BNS_webEntities1())
                 {
                     AccountInfo account = customer.AccountInfoes.SingleOrDefault(x => x.AccountNumber == Accnum);
-                    account.Balance = account.Balance - Convert.ToDouble(txtamount.Text);
+                    account.Balance -= Convert.ToDouble(txtamount.Text);
 
-                    //Transaction transaction = customer.Transactions.SingleOrDefault(a => a.TransID == Accnum);
-
+                    // Write Transaction to table
+                    Transaction withdrawTransaction = new Transaction
+                    {
+                        Amount = Convert.ToDouble(txtamount.Text),
+                        Details = "Money was removed from account",
+                        Date = DateTime.Now.ToString(),
+                        AccountAccountNumber = account.AccountNumber,
+                        Type = "Withdrawal"
+                    };
+                    customer.Transactions.Add(withdrawTransaction);
                     customer.SaveChanges();
-
-
                 }
 
                 lblResult.Visible = true;

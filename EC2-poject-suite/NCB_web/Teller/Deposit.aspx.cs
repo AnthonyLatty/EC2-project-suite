@@ -47,9 +47,19 @@ namespace NCB_web.Teller
                 {
                     AccountInfo account = customer.AccountInfoes.SingleOrDefault(x => x.AccountNumber == Accnum);
                     account.Balance += Convert.ToDouble(txtamount.Text);
+
+                    // Write Transaction to table
+                    Transaction depositTransaction = new Transaction
+                    {
+                        Amount = Convert.ToDouble(txtamount.Text),
+                        Details = "Money was added to account.",
+                        Date = Convert.ToString(DateTime.Now),
+                        AccountAccountNumber = account.AccountNumber,
+                        Type = "Deposit"
+                    };
+                    customer.Transactions.Add(depositTransaction);
                     customer.SaveChanges();
                 }
-
                 lblResult.Visible = true;
                 lblResult.Text = "Yay!! Money was deposited successfully.";
                 ClearControls();
