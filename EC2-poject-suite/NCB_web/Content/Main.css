@@ -1,4 +1,23 @@
-﻿
+﻿/*
+    Home Page
+*/
+.home-banner {
+    width: 100%;
+    height: 500px;
+}
+
+.logo {
+    margin-top: -12px;
+}
+
+.banner-font {
+    text-align: center;
+}
+
+.footer {
+    text-align: center;
+}
+
 /*
     Deposit Page
 */

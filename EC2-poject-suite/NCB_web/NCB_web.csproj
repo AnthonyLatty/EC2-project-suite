@@ -179,24 +179,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="About.aspx" />
-    <Content Include="Account1\AddPhoneNumber.aspx" />
     <Content Include="Account1\Confirm.aspx" />
     <Content Include="Account1\Forgot.aspx" />
+    <Content Include="Account1\jncb-logo.png" />
     <Content Include="Account1\Lockout.aspx" />
     <Content Include="Account1\Login.aspx" />
     <Content Include="Account1\Manage.aspx" />
     <Content Include="Account1\ManageLogins.aspx" />
     <Content Include="Account1\ManagePassword.aspx" />
-    <Content Include="Account1\OpenAuthProviders.ascx" />
     <Content Include="Account1\Register.aspx" />
-    <Content Include="Account1\RegisterExternalLogin.aspx" />
     <Content Include="Account1\ResetPassword.aspx" />
     <Content Include="Account1\ResetPasswordConfirmation.aspx" />
-    <Content Include="Account1\TwoFactorAuthenticationSignIn.aspx" />
-    <Content Include="Account1\VerifyPhoneNumber.aspx" />
     <Content Include="Admin\Maintain.aspx" />
-    <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Main.css" />
@@ -218,6 +212,8 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>NCBmodel.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <Content Include="Images\jncb-logo.png" />
+    <Content Include="Images\ncb-header.jpg" />
     <Content Include="NCBmodel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>NCBmodel.Context.cs</LastGenOutput>
@@ -270,7 +266,6 @@
     <Content Include="Teller\View_Customers.aspx" />
     <Content Include="Teller\Withdraw.aspx" />
     <Content Include="Teller\Withdraw.png" />
-    <Content Include="ViewSwitcher.ascx" />
     <Content Include="WCF_Service\NCB_Service.svc" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -283,13 +278,6 @@
     </Compile>
     <Compile Include="AccountType.cs">
       <DependentUpon>NCBmodel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Account1\AddPhoneNumber.aspx.cs">
-      <DependentUpon>AddPhoneNumber.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account1\AddPhoneNumber.aspx.designer.cs">
-      <DependentUpon>AddPhoneNumber.aspx</DependentUpon>
     </Compile>
     <Compile Include="Account1\Confirm.aspx.cs">
       <DependentUpon>Confirm.aspx</DependentUpon>
@@ -340,26 +328,12 @@
     <Compile Include="Account1\ManagePassword.aspx.designer.cs">
       <DependentUpon>ManagePassword.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Account1\OpenAuthProviders.ascx.cs">
-      <DependentUpon>OpenAuthProviders.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account1\OpenAuthProviders.ascx.designer.cs">
-      <DependentUpon>OpenAuthProviders.ascx</DependentUpon>
-    </Compile>
     <Compile Include="Account1\Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Account1\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Account1\RegisterExternalLogin.aspx.cs">
-      <DependentUpon>RegisterExternalLogin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account1\RegisterExternalLogin.aspx.designer.cs">
-      <DependentUpon>RegisterExternalLogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Account1\ResetPassword.aspx.cs">
       <DependentUpon>ResetPassword.aspx</DependentUpon>
@@ -375,20 +349,6 @@
     <Compile Include="Account1\ResetPasswordConfirmation.aspx.designer.cs">
       <DependentUpon>ResetPasswordConfirmation.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Account1\TwoFactorAuthenticationSignIn.aspx.cs">
-      <DependentUpon>TwoFactorAuthenticationSignIn.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account1\TwoFactorAuthenticationSignIn.aspx.designer.cs">
-      <DependentUpon>TwoFactorAuthenticationSignIn.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Account1\VerifyPhoneNumber.aspx.cs">
-      <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account1\VerifyPhoneNumber.aspx.designer.cs">
-      <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Admin\Maintain.aspx.cs">
       <DependentUpon>Maintain.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -397,13 +357,6 @@
       <DependentUpon>Maintain.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="About.aspx.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="About.aspx.designer.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-    </Compile>
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
@@ -421,13 +374,6 @@
     </Compile>
     <Compile Include="CardNumber.cs">
       <DependentUpon>NCBmodel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Contact.aspx.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Contact.aspx.designer.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
     <Compile Include="Customer1.cs">
       <DependentUpon>NCBmodel.tt</DependentUpon>
@@ -521,13 +467,6 @@
     </Compile>
     <Compile Include="Transaction.cs">
       <DependentUpon>NCBmodel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ViewSwitcher.ascx.cs">
-      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ViewSwitcher.ascx.designer.cs">
-      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
     <Compile Include="WCF_Service\INCB_Service.cs" />
     <Compile Include="WCF_Service\NCB_Service.svc.cs">
