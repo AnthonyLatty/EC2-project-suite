@@ -1,11 +1,14 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Withdraw.aspx.cs" Inherits="NCB_web.Teller.Withdraw" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <br />
+    <br />
     <div class="container">
-        <br />
-        <br />
         <div class="col-md-12">
+            <asp:Label runat="server" ID="lblResult" Visible="false" CssClass="alert alert-success col-md-12" />
             <asp:ValidationSummary runat="server" CssClass="alert alert-danger" />
+            <br />
+            <br />
             <div class="col-md-6" style="border: 1px solid rgba(0,0,0,.125);">
                 <h3>Withdraw Form</h3>
                 <div class="form-group">
@@ -18,9 +21,6 @@
                 </div>
                 <div class="form-group">
                     <asp:Button ID="btndeposit" class="btnSubmit " runat="server" Text="Withdraw from this account" CssClass="btn btn-success" OnClick="btndeposit_Click" />
-                </div>
-                <div class="form-group">
-                    <asp:Label runat="server" ID="lblResult" ForeColor="Yellow" />
                 </div>
             </div>
             <div class="col-md-6">

@@ -24,7 +24,8 @@ namespace NCB_web.Teller
             var strConnString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
             using (SqlConnection conn = new SqlConnection(strConnString))
             {
-                SqlCommand cmd = new SqlCommand("SELECT CAST(Accounts.AccountNumber AS VARCHAR(50)) as ACC, Customers.FirstName +' '+ Customers.LastName + '                 ' +  CAST(Accounts.AccountNumber AS VARCHAR(50))  + '                '+'$'+CAST(Accounts.Balance  AS VARCHAR(25)) as Account FROM Customers INNER JOIN Accounts ON Customers.CustomerID = Accounts.CustomerCustomerID", conn);
+                var sqlSyntax = "SELECT CAST(Accounts.AccountNumber AS VARCHAR(50)) as ACC, Customers.FirstName +' '+ Customers.LastName + '                 ' +  CAST(Accounts.AccountNumber AS VARCHAR(50))  + '                '+'$'+CAST(Accounts.Balance  AS VARCHAR(25)) as Account FROM Customers INNER JOIN Accounts ON Customers.CustomerID = Accounts.CustomerCustomerID";
+                SqlCommand cmd = new SqlCommand(sqlSyntax, conn);
                 conn.Open();
 
                 SqlDataReader rdr = cmd.ExecuteReader();
@@ -49,7 +50,8 @@ namespace NCB_web.Teller
                     customer.SaveChanges();
                 }
 
-                lblResult.Text = "Yay!! Money deposited successfully.";
+                lblResult.Visible = true;
+                lblResult.Text = "Yay!! Money was deposited successfully.";
                 ClearControls();
             }
         }
