@@ -6,6 +6,7 @@
 -- Generated from EDMX file: C:\Users\Kaheem\Source\Repos\EC2-project-suite\EC2-poject-suite\NCB_web\NCBmodel.edmx
 -- --------------------------------------------------
 
+CREATE DATABASE NCB_DB
 SET QUOTED_IDENTIFIER OFF;
 GO
 USE [NCB_DB];
@@ -78,7 +79,7 @@ CREATE SEQUENCE dbo.Sequence1
     CYCLE 
     CACHE 100;
 -- Creating table 'CardNumbers'
-drop table CardNumbers
+
 CREATE TABLE [dbo].[CardNumbers] (
     
     [CardNum] bigint IDENTITY(950500001000,1) NOT NULL,
@@ -141,12 +142,7 @@ ADD CONSTRAINT [PK_CardNumbers]
     PRIMARY KEY CLUSTERED ([CardNum] ASC);
 GO
 
-create procedure cardInsert
-(
-@card int
-)
-as
-insert into [dbo].[CardNumbers]([AccountAccountNumber]) values(@card) 
+
 -- Creating primary key on [CustomerID] in table 'Customers'
 ALTER TABLE [dbo].[Customers]
 ADD CONSTRAINT [PK_Customers]
@@ -222,7 +218,12 @@ CREATE INDEX [IX_FK_CustomerAccount]
 ON [dbo].[Accounts]
     ([CustomerCustomerID]);
 GO
-
+create procedure cardInsert
+(
+@card int
+)
+as
+insert into [dbo].[CardNumbers]([AccountAccountNumber]) values(@card) 
 -- --------------------------------------------------
 -- Script has ended
 -- --------------------------------------------------

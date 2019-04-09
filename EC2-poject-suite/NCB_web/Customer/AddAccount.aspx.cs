@@ -68,6 +68,7 @@ namespace NCB_web.Customer
                 }
                 throw;
             }
+            Response.Redirect("Dashboard.aspx");
         }
     }
 }

@@ -71,23 +71,17 @@ namespace NCB_web
         {
             if (!Page.User.IsInRole("Customer"))
             {
-
                 dash.Visible = false;
-                openacc.Visible=false;
-
-
+                openacc.Visible = false;
             }
             if (!Page.User.IsInRole("Administrator"))
             {
-
                 admin.Visible = false;
-
             }
             if (!Page.User.IsInRole("Teller"))
             {
                 viewcus.Visible = false;
                 account.Visible = false;
-
             }
 
         }
