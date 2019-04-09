@@ -61,7 +61,8 @@ amplify.request.define = function( resourceId, requestType, settings ) {
 
 /// >> amplify.store
 
-amplify.store = functional( key, value, options ) {
+amplify.store = functional(key, value, options)
+{ 
 
 	/// <summary>
 	/// 	Stores a value for a given key using the default storage type.

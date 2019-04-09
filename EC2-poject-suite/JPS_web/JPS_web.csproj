@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -47,6 +47,9 @@
     <Reference Include="JuiceUI, Version=1.1.1.0, Culture=neutral, PublicKeyToken=2ba9b13151115713, processorArchitecture=MSIL">
       <HintPath>..\packages\JuiceUI.1.1.1\lib\net40\JuiceUI.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
@@ -56,6 +59,7 @@
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -160,9 +164,6 @@
     <Reference Include="Microsoft.AspNet.TelemetryCorrelation">
       <HintPath>..\packages\Microsoft.AspNet.TelemetryCorrelation.1.0.0\lib\net45\Microsoft.AspNet.TelemetryCorrelation.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
-      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Account\Admin\AddCustomerBill.aspx" />
@@ -172,6 +173,13 @@
     <Content Include="Account\Forgot.aspx" />
     <Content Include="Account\JPS-official-logo.png" />
     <Content Include="Account\Lockout.aspx" />
+    <None Include="Connected Services\NCBServiceReference\NCB_Service.disco" />
+    <None Include="Connected Services\NCBServiceReference\configuration91.svcinfo" />
+    <None Include="Connected Services\NCBServiceReference\configuration.svcinfo" />
+    <None Include="Connected Services\NCBServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Content\Error.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
@@ -247,6 +255,7 @@
     <Content Include="Content\themes\Supercharged\images\ui-icons_ffbc0f_256x240.png" />
     <Content Include="Content\themes\Supercharged\images\ui-icons_ffc905_256x240.png" />
     <Content Include="Content\themes\Supercharged\jquery-ui-1.9.0.custom.css" />
+    <Content Include="DatepickerUserControl.ascx" />
     <Content Include="DynamicData\EntityTemplates\Default.ascx" />
     <Content Include="DynamicData\EntityTemplates\Default_Edit.ascx" />
     <Content Include="DynamicData\EntityTemplates\Default_Insert.ascx" />
@@ -274,6 +283,17 @@
     <Content Include="Images\JPS-Man.png" />
     <Content Include="Images\PaymentBill.png" />
     <Content Include="Images\PendingBills.jpg" />
+    <Content Include="JPSmodel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>JPSmodel.edmx</DependentUpon>
+      <LastGenOutput>JPSmodel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="JPSmodel.edmx.sql" />
+    <Content Include="JPSmodel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>JPSmodel.edmx</DependentUpon>
+      <LastGenOutput>JPSmodel.cs</LastGenOutput>
+    </Content>
     <Content Include="Login.aspx" />
     <Content Include="Account\Manage.aspx" />
     <Content Include="Account\ManagePassword.aspx" />
@@ -307,6 +327,20 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
+    <EntityDeploy Include="JPSmodel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>JPSmodel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="JPSmodel.edmx.diagram">
+      <DependentUpon>JPSmodel.edmx</DependentUpon>
+    </Content>
+    <None Include="Connected Services\NCBServiceReference\NCB_Service.wsdl" />
+    <None Include="Connected Services\NCBServiceReference\NCB_Service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\NCBServiceReference\NCB_Service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Images\JPS-official-logo.png" />
     <Content Include="Images\Powering_tomorrow_header.jpg" />
@@ -403,6 +437,24 @@
     </Compile>
     <Compile Include="Account\Lockout.aspx.designer.cs">
       <DependentUpon>Lockout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Bill.cs">
+      <DependentUpon>JPSmodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\NCBServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Customer.cs">
+      <DependentUpon>JPSmodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatepickerUserControl.ascx.cs">
+      <DependentUpon>DatepickerUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DatepickerUserControl.ascx.designer.cs">
+      <DependentUpon>DatepickerUserControl.ascx</DependentUpon>
     </Compile>
     <Compile Include="DynamicData\EntityTemplates\Default.ascx.cs">
       <DependentUpon>Default.ascx</DependentUpon>
@@ -565,6 +617,21 @@
     <Compile Include="DynamicData\FieldTemplates\Url_Edit.ascx.designer.cs">
       <DependentUpon>Url_Edit.ascx</DependentUpon>
     </Compile>
+    <Compile Include="JPSmodel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JPSmodel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="JPSmodel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JPSmodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="JPSmodel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JPSmodel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -670,6 +737,10 @@
     <Compile Include="Migrations\201904061852519_AddTransactionTable.Designer.cs">
       <DependentUpon>201904061852519_AddTransactionTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904080841433_addName.cs" />
+    <Compile Include="Migrations\201904080841433_addName.Designer.cs">
+      <DependentUpon>201904080841433_addName.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Bill.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -727,6 +798,9 @@
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
+    <Compile Include="Transaction.cs">
+      <DependentUpon>JPSmodel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Views\ErrorPages\401.aspx.cs">
       <DependentUpon>401.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -837,6 +911,15 @@
     <EmbeddedResource Include="Migrations\201904061852519_AddTransactionTable.resx">
       <DependentUpon>201904061852519_AddTransactionTable.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904080841433_addName.resx">
+      <DependentUpon>201904080841433_addName.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\NCBServiceReference\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -867,7 +950,7 @@
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

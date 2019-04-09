@@ -17,6 +17,18 @@
                     <asp:RequiredFieldValidator runat="server" ControlToValidate="PremisesNumber"
                         CssClass="text-danger" ErrorMessage="The Premises No. field is required." />
                 </div>
+                <div class="form-group">
+                    <asp:Label runat="server" AssociatedControlID="tbfname" CssClass="control-label">First Name</asp:Label>
+                    <asp:TextBox runat="server" ID="tbfname" CssClass="form-control" />
+                    <asp:RequiredFieldValidator runat="server" ControlToValidate="tbfname"
+                        CssClass="text-danger" ErrorMessage="The firstName field is required." />
+                </div>
+                <div class="form-group">
+                    <asp:Label runat="server" AssociatedControlID="tbLastName" CssClass="control-label">Last Name</asp:Label>
+                    <asp:TextBox runat="server" ID="tbLastName" CssClass="form-control" />
+                    <asp:RequiredFieldValidator runat="server" ControlToValidate="tbLastName"
+                        CssClass="text-danger" ErrorMessage="The Last Name field is required." />
+                </div>
                  <div class="form-group">
                     <asp:Label runat="server" AssociatedControlID="UserName" CssClass="control-label">UserName</asp:Label>
                     <asp:TextBox runat="server" ID="UserName" CssClass="form-control" />

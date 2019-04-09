@@ -34,16 +34,21 @@ namespace JPS_web.Account
 
             if (result.Succeeded)
             {
-                Models.Customer customer = new Models.Customer
+       JPS_web.Customer customer = new JPS_web.Customer()
                 {
                     Id = Email.Text,
                     UserName = UserName.Text,
-                    PremisesNumber = PremisesNumber.Text
+                    PremisesNumber = PremisesNumber.Text,
+                    FirstName = tbfname.Text,
+                    LastName=tbLastName.Text
+           
+                    
+                    
                 };
 
-                var jPSContext = new JPSContext();
-                jPSContext.Customers.Add(customer);
-                jPSContext.SaveChanges();
+                JPS_webEntities cust = new JPS_webEntities();
+                cust.Customers.Add(customer);
+                cust.SaveChanges();
 
                 signInManager.SignIn(user, isPersistent: false, rememberBrowser: false);
                 IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);

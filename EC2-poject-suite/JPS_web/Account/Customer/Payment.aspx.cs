@@ -13,20 +13,7 @@ namespace JPS_web.Account.Customer
             //lblTest.Text = t;
         }
 
-        public void PaymentForm_InsertItem()
-        {
-            var item = new Transaction();
-            TryUpdateModel(item);
-            if (ModelState.IsValid)
-            {
-                // Save changes here
-                using (JPSContext context = new JPSContext())
-                {
-                    context.Transactions.Add(item);
-                    context.SaveChanges();
-                }
-            }
-        }
+      
 
         protected void PaymentForm_ItemInserted(object sender, FormViewInsertedEventArgs e)
         {

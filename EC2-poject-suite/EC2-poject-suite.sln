@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.28729.10
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2020
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "JPS", "JPS", "{A027DE48-C481-4219-9D04-077F9AC5AC63}"
 EndProject
@@ -10,6 +10,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NCB", "NCB", "{59D6E35E-32F9-4BC0-80EF-D71C31131E97}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JPS_web", "JPS_web\JPS_web.csproj", "{195F5DD7-E489-41F3-8B37-78D75E63905F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{57B87FC7-AAD1-4701-A5A7-D48B0DEE36B0} = {57B87FC7-AAD1-4701-A5A7-D48B0DEE36B0}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BNS_web", "BNS_web\BNS_web.csproj", "{2ED400D1-1B42-4A0F-B04C-70573CAA2D4C}"
 EndProject

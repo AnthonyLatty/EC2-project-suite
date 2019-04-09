@@ -17,5 +17,13 @@ namespace JPS_web.Models
         [Required(ErrorMessage = "7 digits for Premises No."), Display(Name = "Premises No.")]
         [MinLength(7),MaxLength(7)]
         public string PremisesNumber { get; set; }
+
+        [Display(Name = "FirstName")]
+        [Editable(false)]
+        public string FirstName { get; set; }
+
+        [Display(Name = "LastName")]
+        [Editable(false)]
+        public string LastName { get; set; }
     }
 }
