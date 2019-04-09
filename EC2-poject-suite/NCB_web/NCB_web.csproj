@@ -185,7 +185,6 @@
     <Content Include="Account1\Lockout.aspx" />
     <Content Include="Account1\Login.aspx" />
     <Content Include="Account1\Manage.aspx" />
-    <Content Include="Account1\ManageLogins.aspx" />
     <Content Include="Account1\ManagePassword.aspx" />
     <Content Include="Account1\Register.aspx" />
     <Content Include="Account1\ResetPassword.aspx" />
@@ -260,12 +259,12 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
-    <Content Include="Teller\deposit.png" />
-    <Content Include="Teller\Depsit.aspx" />
+    <Content Include="Images\deposit.png" />
+    <Content Include="Teller\Deposit.aspx" />
     <Content Include="Teller\ViewTransactions.aspx" />
     <Content Include="Teller\View_Customers.aspx" />
     <Content Include="Teller\Withdraw.aspx" />
-    <Content Include="Teller\Withdraw.png" />
+    <Content Include="Images\Withdraw.png" />
     <Content Include="WCF_Service\NCB_Service.svc" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -313,13 +312,6 @@
     </Compile>
     <Compile Include="Account1\Manage.aspx.designer.cs">
       <DependentUpon>Manage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Account1\ManageLogins.aspx.cs">
-      <DependentUpon>ManageLogins.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account1\ManageLogins.aspx.designer.cs">
-      <DependentUpon>ManageLogins.aspx</DependentUpon>
     </Compile>
     <Compile Include="Account1\ManagePassword.aspx.cs">
       <DependentUpon>ManagePassword.aspx</DependentUpon>
@@ -437,12 +429,12 @@
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
-    <Compile Include="Teller\Depsit.aspx.cs">
-      <DependentUpon>Depsit.aspx</DependentUpon>
+    <Compile Include="Teller\Deposit.aspx.cs">
+      <DependentUpon>Deposit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Teller\Depsit.aspx.designer.cs">
-      <DependentUpon>Depsit.aspx</DependentUpon>
+    <Compile Include="Teller\Deposit.aspx.designer.cs">
+      <DependentUpon>Deposit.aspx</DependentUpon>
     </Compile>
     <Compile Include="Teller\ViewTransactions.aspx.cs">
       <DependentUpon>ViewTransactions.aspx</DependentUpon>

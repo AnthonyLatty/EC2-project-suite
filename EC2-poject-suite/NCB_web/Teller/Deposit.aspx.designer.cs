@@ -10,7 +10,7 @@
 namespace NCB_web.Teller {
     
     
-    public partial class Depsit {
+    public partial class Deposit {
         
         /// <summary>
         /// ddlDeposit control.

@@ -13,22 +13,40 @@ namespace NCB_web.Teller {
     public partial class Withdraw {
         
         /// <summary>
-        /// ddWithdraw control.
+        /// ddlWithdraw control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddWithdraw;
+        protected global::System.Web.UI.WebControls.DropDownList ddlWithdraw;
         
         /// <summary>
-        /// tbamount control.
+        /// ddlWithdrawRequiredField control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbamount;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ddlWithdrawRequiredField;
+        
+        /// <summary>
+        /// txtamount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtamount;
+        
+        /// <summary>
+        /// txtamountRequiredField control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator txtamountRequiredField;
         
         /// <summary>
         /// btndeposit control.
@@ -38,6 +56,15 @@ namespace NCB_web.Teller {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btndeposit;
+        
+        /// <summary>
+        /// lblResult control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblResult;
         
         /// <summary>
         /// Image1 control.

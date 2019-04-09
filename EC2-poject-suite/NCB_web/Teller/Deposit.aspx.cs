@@ -1,17 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Data;
 using System.Data.SqlClient;
-using System.Globalization;
 using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace NCB_web.Teller
 {
-    public partial class Depsit : System.Web.UI.Page
+    public partial class Deposit : Page
     {
         public int Accnum;
         protected void Page_Load(object sender, EventArgs e)
@@ -23,11 +19,9 @@ namespace NCB_web.Teller
         }
         private void Binddatareader()
         {
-            ddlDeposit.Items.Add(new ListItem("--Select Customer Account--(Name Acc# Balance) ", ""));
-            ddlDeposit.Items[0].Attributes.CssStyle.Add("font-weight", "bold");
-            ddlDeposit.Items[0].Attributes.CssStyle.Add("style", "color:Red");
+            ddlDeposit.Items.Add(new ListItem("Select Customer Account - (Name Acc# Balance) ", ""));
 
-            String strConnString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            var strConnString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
             using (SqlConnection conn = new SqlConnection(strConnString))
             {
                 SqlCommand cmd = new SqlCommand("SELECT CAST(Accounts.AccountNumber AS VARCHAR(50)) as ACC, Customers.FirstName +' '+ Customers.LastName + '                 ' +  CAST(Accounts.AccountNumber AS VARCHAR(50))  + '                '+'$'+CAST(Accounts.Balance  AS VARCHAR(25)) as Account FROM Customers INNER JOIN Accounts ON Customers.CustomerID = Accounts.CustomerCustomerID", conn);
@@ -51,9 +45,7 @@ namespace NCB_web.Teller
                 using (BNS_webEntities1 customer = new BNS_webEntities1())
                 {
                     AccountInfo account = customer.AccountInfoes.SingleOrDefault(x => x.AccountNumber == Accnum);
-
                     account.Balance += Convert.ToDouble(txtamount.Text);
-
                     customer.SaveChanges();
                 }
 
