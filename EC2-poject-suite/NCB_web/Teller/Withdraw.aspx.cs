@@ -47,7 +47,12 @@ namespace NCB_web.Teller
                 {
                     AccountInfo account = customer.AccountInfoes.SingleOrDefault(x => x.AccountNumber == Accnum);
                     account.Balance = account.Balance - Convert.ToDouble(txtamount.Text);
+
+                    //Transaction transaction = customer.Transactions.SingleOrDefault(a => a.TransID == Accnum);
+
                     customer.SaveChanges();
+
+
                 }
 
                 lblResult.Visible = true;

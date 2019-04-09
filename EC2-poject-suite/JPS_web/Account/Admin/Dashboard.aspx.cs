@@ -2,11 +2,8 @@
 using System;
 using System.Configuration;
 using System.Data;
-using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Web.ModelBinding;
 using System.Web.UI;
 
 namespace JPS_web.Account.Admin
@@ -15,7 +12,6 @@ namespace JPS_web.Account.Admin
     {
         SqlCommand cmd;
         SqlDataAdapter da;
-        DataSet ds;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -24,16 +20,8 @@ namespace JPS_web.Account.Admin
             }
         }
 
-        
-       
-        
-
         // The id parameter name should match the DataKeyNames value set on the control
-       
-        // The id parameter name should match the DataKeyNames value set on the control
-      
 
-       
         public IQueryable<Models.Customer> CurrentCustomersGridView_GetData()
         {
             JPSContext context = new JPSContext();
@@ -47,13 +35,12 @@ namespace JPS_web.Account.Admin
             String strConnString = ConfigurationManager.ConnectionStrings["JPSContext"].ConnectionString;
             using (SqlConnection conn = new SqlConnection(strConnString))
             {
-
                 conn.Open();
                 cmd = new SqlCommand("Select * from Customers", conn);
                 DataSet ds = new DataSet();
                 da = new SqlDataAdapter(cmd);
                 da.Fill(ds);
-               RepeaterDetails.DataSource = ds;
+                RepeaterDetails.DataSource = ds;
                 RepeaterDetails.DataBind();
             }
         }

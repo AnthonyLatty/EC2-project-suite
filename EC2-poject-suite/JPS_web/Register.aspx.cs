@@ -34,16 +34,13 @@ namespace JPS_web.Account
 
             if (result.Succeeded)
             {
-       JPS_web.Customer customer = new JPS_web.Customer()
+                JPS_web.Customer customer = new JPS_web.Customer()
                 {
                     Id = Email.Text,
                     UserName = UserName.Text,
                     PremisesNumber = PremisesNumber.Text,
                     FirstName = tbfname.Text,
-                    LastName=tbLastName.Text
-           
-                    
-                    
+                    LastName = tbLastName.Text
                 };
 
                 JPS_webEntities cust = new JPS_webEntities();
@@ -57,7 +54,6 @@ namespace JPS_web.Account
             {
                 ErrorMessage.Text = result.Errors.FirstOrDefault();
             }
-
         }
     }
 }
