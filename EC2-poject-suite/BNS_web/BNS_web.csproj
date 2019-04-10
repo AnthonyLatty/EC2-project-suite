@@ -418,7 +418,7 @@
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
-    <Compile Include="Startup.cs" />
+    <Compile Include="BNS_Startup.cs" />
     <Compile Include="Transaction.cs">
       <DependentUpon>BNS_Model.tt</DependentUpon>
     </Compile>
@@ -467,6 +467,12 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NCB_web\NCB_web.csproj">
+      <Project>{57B87FC7-AAD1-4701-A5A7-D48B0DEE36B0}</Project>
+      <Name>NCB_web</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

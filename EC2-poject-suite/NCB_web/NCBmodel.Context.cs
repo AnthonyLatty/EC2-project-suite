@@ -28,7 +28,7 @@ namespace NCB_web
         public virtual DbSet<AccountInfo> AccountInfoes { get; set; }
         public virtual DbSet<AccountType> AccountTypes { get; set; }
         public virtual DbSet<CardNumber> CardNumbers { get; set; }
-        public virtual DbSet<Customer1> Customer1 { get; set; }
+        public virtual DbSet<Customer1> Customer { get; set; }
         public virtual DbSet<Transaction> Transactions { get; set; }
         public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
         public virtual DbSet<AspNetRole> AspNetRoles { get; set; }

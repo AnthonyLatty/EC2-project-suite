@@ -1,21 +1,21 @@
 ﻿using System;
+using BNS_web.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin;
-using NCB_web.Models;
 using Owin;
 
-[assembly: OwinStartupAttribute(typeof(NCB_web.Startup))]
-namespace NCB_web
+[assembly: OwinStartupAttribute("BNS",typeof(BNS_web.BNS_Startup))]
+namespace BNS_web
 {
-    public partial class Startup {
+    public partial class BNS_Startup {
         public void Configuration(IAppBuilder app) {
             ConfigureAuth(app);
 
-            CreateNCBAdmin();
+            SeedAdminToDatabase();
         }
 
-        private void CreateNCBAdmin()
+        private void SeedAdminToDatabase()
         {
             var context = new ApplicationDbContext();
 
@@ -36,12 +36,12 @@ namespace NCB_web
                 // Create admin user
                 var adminUser = new ApplicationUser
                 {
-                    UserName = "Admin@ncb.com",
-                    Email = "Admin@ncb.com"
+                    UserName = "Admin@scotia.com",
+                    Email = "Admin@scotia.com"
                 };
 
                 // Use random string for password
-                string password = "KsemwQf765UO";
+                string password = "8fP4MBRRNz3i";
 
                 // Create admin user with password
                 var result = UserManager.Create(adminUser, password);

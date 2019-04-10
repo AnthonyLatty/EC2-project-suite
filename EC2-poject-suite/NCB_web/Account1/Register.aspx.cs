@@ -31,7 +31,7 @@ namespace NCB_web.Account1
                 };
 
                 BNS_webEntities1 customer = new BNS_webEntities1();
-                customer.Customer1.Add(NcbCustomer);
+                customer.Customer.Add(NcbCustomer);
                 try
                 {
                     customer.SaveChanges();

@@ -46,7 +46,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" runat="server" href="~/">
-                        <img class="logo" src="Images/scotiabank_logo.png" />
+                        <img class="logo" src="../../Account/scotiabank_logo.png" />
                     </a>
                 </div>
                 <div class="navbar-collapse collapse">
@@ -78,8 +78,8 @@
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="~/Account/Register">Register</a></li>
-                                <li><a runat="server" href="~/Account/Login">Log in</a></li>
+                                <li><a runat="server" href="~/Register.aspx">Register</a></li>
+                                <li><a runat="server" href="~/Login.aspx">Log in</a></li>
                             </ul>
                         </AnonymousTemplate>
                         <LoggedInTemplate>
