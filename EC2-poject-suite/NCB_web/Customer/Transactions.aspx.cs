@@ -44,6 +44,7 @@ namespace NCB_web.Customer
                 }
             }
         }
+
         protected void RepterDetails_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
             if (e.CommandName == "cmd_trans")
@@ -58,12 +59,24 @@ namespace NCB_web.Customer
             using (SqlConnection conn = new SqlConnection(strConnString))
             {
                 conn.Open();
-                sqlCommand = new SqlCommand("Select Customers.FirstName +' '+ Customers.LastName as fullname, Accounts.AccountNumber as accnum, Transactions.Amount as amount, Transactions.Details as details, Transactions.Date as date FROM Transactions INNER JOIN Accounts ON Transactions.AccountAccountNumber = Accounts.AccountNumber INNER JOIN Customers ON Accounts.CustomerCustomerID = Customers.CustomerID where( Transactions.AccountAccountNumber='" + transid + "')", conn);
+                sqlCommand = new SqlCommand("Select Customers.FirstName +' '+ Customers.LastName as fullname, Accounts.AccountNumber as accnum, Transactions.Amount as amount, Transactions.Details as details,Transactions.Type as Type, Transactions.Date as date FROM Transactions INNER JOIN Accounts ON Transactions.AccountAccountNumber = Accounts.AccountNumber INNER JOIN Customers ON Accounts.CustomerCustomerID = Customers.CustomerID where( Transactions.AccountAccountNumber='" + transid + "')", conn);
                 DataSet ds = new DataSet();
                 sqlDataAdapter = new SqlDataAdapter(sqlCommand);
                 sqlDataAdapter.Fill(ds);
                 Repeater1.DataSource = ds;
                 Repeater1.DataBind();
+            }
+        }
+
+        protected string FormatColorRow(string accountType)
+        {
+            if (accountType.TrimEnd() == "Deposit")
+            {
+                return "style = 'background-color:green' ";
+            }
+            else
+            {
+                return "style = 'background-color:red' ";
             }
         }
     }

@@ -12,7 +12,9 @@ namespace NCB_web.WCF_Service
     public interface INCB_Service
     {
         [OperationContract]
-        void getPayment(float amount, long cardNumber);
-        
+        void getPayment(float amount, long cardNumber, string id);
+
+        [OperationContract]
+        void TransferFunds(float amount, string id);
     }
 }

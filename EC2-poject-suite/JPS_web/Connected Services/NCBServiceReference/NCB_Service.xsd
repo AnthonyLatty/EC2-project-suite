@@ -5,10 +5,24 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="amount" type="xs:float" />
         <xs:element minOccurs="0" name="cardNumber" type="xs:long" />
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="getPaymentResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TransferFunds">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="amount" type="xs:float" />
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TransferFundsResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>

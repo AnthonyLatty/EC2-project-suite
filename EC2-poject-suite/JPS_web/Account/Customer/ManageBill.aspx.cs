@@ -70,6 +70,7 @@ namespace JPS_web.Account.Customer
 
         protected void btnPaybill_Click(object sender, EventArgs e)
         {
+            int billID = Convert.ToInt32(lblBillId.Text);
             if (IsValid)
             {
                 var first_four_digit = tbcardnum.Text.Substring(0, 4);
@@ -77,9 +78,9 @@ namespace JPS_web.Account.Customer
                 if (first_four_digit == "9505")
                 {
                     NCBServiceReference.NCB_ServiceClient client = new NCBServiceReference.NCB_ServiceClient();
-                    client.getPayment(amount, Convert.ToInt64(tbcardnum.Text));
+                    client.getPayment(amount, Convert.ToInt64(tbcardnum.Text), Convert.ToString(billID));
 
-                    int billID = Convert.ToInt32(lblBillId.Text);
+
 
                     using (JPS_webEntities customer = new JPS_webEntities())
                     {

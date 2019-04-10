@@ -16,10 +16,16 @@ namespace JPS_web.NCBServiceReference {
     public interface INCB_Service {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INCB_Service/getPayment", ReplyAction="http://tempuri.org/INCB_Service/getPaymentResponse")]
-        void getPayment(float amount, long cardNumber);
+        void getPayment(float amount, long cardNumber, string id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INCB_Service/getPayment", ReplyAction="http://tempuri.org/INCB_Service/getPaymentResponse")]
-        System.Threading.Tasks.Task getPaymentAsync(float amount, long cardNumber);
+        System.Threading.Tasks.Task getPaymentAsync(float amount, long cardNumber, string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INCB_Service/TransferFunds", ReplyAction="http://tempuri.org/INCB_Service/TransferFundsResponse")]
+        void TransferFunds(float amount, string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INCB_Service/TransferFunds", ReplyAction="http://tempuri.org/INCB_Service/TransferFundsResponse")]
+        System.Threading.Tasks.Task TransferFundsAsync(float amount, string id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -49,12 +55,20 @@ namespace JPS_web.NCBServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public void getPayment(float amount, long cardNumber) {
-            base.Channel.getPayment(amount, cardNumber);
+        public void getPayment(float amount, long cardNumber, string id) {
+            base.Channel.getPayment(amount, cardNumber, id);
         }
         
-        public System.Threading.Tasks.Task getPaymentAsync(float amount, long cardNumber) {
-            return base.Channel.getPaymentAsync(amount, cardNumber);
+        public System.Threading.Tasks.Task getPaymentAsync(float amount, long cardNumber, string id) {
+            return base.Channel.getPaymentAsync(amount, cardNumber, id);
+        }
+        
+        public void TransferFunds(float amount, string id) {
+            base.Channel.TransferFunds(amount, id);
+        }
+        
+        public System.Threading.Tasks.Task TransferFundsAsync(float amount, string id) {
+            return base.Channel.TransferFundsAsync(amount, id);
         }
     }
 }

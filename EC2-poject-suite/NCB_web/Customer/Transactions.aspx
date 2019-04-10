@@ -18,7 +18,7 @@
                                 </p>
                                 <p class="card-text">
                                     <label>Acount Type: </label>
-                                    <asp:Label ID="lblAcountType" ForeColor="White" runat="server" Text='<%#Eval("actype") %>' />
+                                    <asp:Label ID="lblAcountType" runat="server" Text='<%#Eval("actype") %>' />
                                 </p>
                                 <p class="card-text">
                                     <label>Account No: </label>
@@ -45,23 +45,27 @@
                             <th>Amount</th>
                             <th>Details</th>
                             <th>Date</th>
+                            <th>Type</th>
                         </tr>
                     </thead>
                     <tbody>
                         <asp:Repeater ID="Repeater1" runat="server">
                             <ItemTemplate>
-                                <tr>
+                                <tr <%# FormatColorRow(DataBinder.Eval(Container.DataItem,"Type").ToString()) %>  >
                                     <td>
-                                        <asp:Label ID="lblAccnum" runat="server" Text='<%#Eval("accnum") %>' />
+                                        <asp:Label ID="lblAccnum" runat="server" ForeColor="White" Text='<%#Eval("accnum") %>' />
                                     </td>
                                     <td>
-                                        <asp:Label ID="lblAcctype" runat="server" Text='<%#Eval("amount") %>' />
+                                        <asp:Label ID="lblAcctype" runat="server" ForeColor="White" Text='<%#Eval("amount") %>' />
                                     </td>
                                     <td>
-                                        <asp:Label ID="lblbalance" runat="server" Text='<%#Eval("details") %>' />
+                                        <asp:Label ID="lblbalance" runat="server" ForeColor="White" Text='<%#Eval("details") %>' />
                                     </td>
                                     <td>
-                                        <asp:Label ID="lblDate" runat="server" Text='<%#Eval("date") %>' Font-Bold="true" />
+                                        <asp:Label ID="lblDate" runat="server" ForeColor="White" Text='<%#Eval("date") %>' Font-Bold="true" />
+                                    </td>
+                                    <td style="color: white;">
+                                         <%# DataBinder.Eval(Container.DataItem,"Type").ToString() %>
                                     </td>
                                 </tr>
                             </ItemTemplate>

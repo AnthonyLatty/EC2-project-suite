@@ -8,19 +8,14 @@ using System.Text;
 
 namespace NCB_web.WCF_Service
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "NCB_Service" in code, svc and config file together.
-    // NOTE: In order to launch WCF Test Client for testing this service, please select NCB_Service.svc or NCB_Service.svc.cs at the Solution Explorer and start debugging.
     public class NCB_Service : INCB_Service
     {
         static int accountNum;
         string ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
-        
-        public void getPayment(float amount, long cardNumber)
+
+        public void getPayment(float amount, long cardNumber, string billID)
         {
-
-
-
             SqlConnection sqlConnection = new SqlConnection(ConnectionString);
 
             string qry = "Select AccountAccountNumber from CardNumbers where CardNum='" + cardNumber + "'";
@@ -38,19 +33,45 @@ namespace NCB_web.WCF_Service
                 accountNum = reader.GetInt32(0);
             }
 
-          
-           
-           using (BNS_webEntities1 customer = new BNS_webEntities1())
-
+            using (BNS_webEntities1 customer = new BNS_webEntities1())
             {
                 AccountInfo account = customer.AccountInfoes.SingleOrDefault(x => x.AccountNumber == accountNum);
                 account.Balance = account.Balance - amount;
+
+                Transaction customerTransaction = new Transaction
+                {
+                    AccountAccountNumber = account.AccountNumber,
+                    Amount = amount,
+                    Details = "Payment for JPS Bill " + billID,
+                    Type = "",
+                    Date = DateTime.Now.ToString()
+                };
+
+                TransferFunds(amount, billID);
                 customer.SaveChanges();
+               
             }
+        }
+
+        public void TransferFunds(float amount,string billID)
+        {
+            using (BNS_webEntities1 jpsAccount = new BNS_webEntities1())
+            {
+                AccountInfo accountInfo = jpsAccount.AccountInfoes.SingleOrDefault(a => a.AccountNumber == 9190002);
+                accountInfo.Balance = accountInfo.Balance + amount;
 
 
-
+                Transaction jpsTransaction = new Transaction
+                {
+                    AccountAccountNumber = accountInfo.AccountNumber,
+                    Amount = amount,
+                    Details = $"Payment for JPS Bill {billID}",
+                    Type = "Deposit",
+                    Date = DateTime.Now.ToString()
+                };
+                jpsAccount.Transactions.Add(jpsTransaction);
+                jpsAccount.SaveChanges();
             }
-
+        }
     }
 }

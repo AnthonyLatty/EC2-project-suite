@@ -12,16 +12,35 @@
   <wsdl:message name="INCB_Service_getPayment_OutputMessage">
     <wsdl:part name="parameters" element="tns:getPaymentResponse" />
   </wsdl:message>
+  <wsdl:message name="INCB_Service_TransferFunds_InputMessage">
+    <wsdl:part name="parameters" element="tns:TransferFunds" />
+  </wsdl:message>
+  <wsdl:message name="INCB_Service_TransferFunds_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TransferFundsResponse" />
+  </wsdl:message>
   <wsdl:portType name="INCB_Service">
     <wsdl:operation name="getPayment">
       <wsdl:input wsaw:Action="http://tempuri.org/INCB_Service/getPayment" message="tns:INCB_Service_getPayment_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/INCB_Service/getPaymentResponse" message="tns:INCB_Service_getPayment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TransferFunds">
+      <wsdl:input wsaw:Action="http://tempuri.org/INCB_Service/TransferFunds" message="tns:INCB_Service_TransferFunds_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INCB_Service/TransferFundsResponse" message="tns:INCB_Service_TransferFunds_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_INCB_Service" type="tns:INCB_Service">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="getPayment">
       <soap:operation soapAction="http://tempuri.org/INCB_Service/getPayment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransferFunds">
+      <soap:operation soapAction="http://tempuri.org/INCB_Service/TransferFunds" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

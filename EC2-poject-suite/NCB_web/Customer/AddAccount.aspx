@@ -10,8 +10,9 @@
             <div class="col-md-8">
                 <section id="loginForm">
                     <div class="form-horizontal">
-                        <h4>Start an account</h4>
+                        <h4>Open an account with us, we are looking forward to serving you.</h4>
                         <hr />
+                        <br />
                         <asp:ValidationSummary runat="server" CssClass="text-danger" />
                         <div class="form-group">
                             <asp:Label runat="server" AssociatedControlID="DDacc" CssClass="col-md-2 control-label" Text="Account Type" />
@@ -26,7 +27,7 @@
 
                         <div class="form-group">
                             <div class="col-md-offset-2 col-md-10">
-                                <asp:Button runat="server" ID="btnAdd" OnClick="btnAdd_Click" Text="Add Account" CssClass="btn btn-success" />
+                                <asp:Button runat="server" ID="btnAdd" OnClick="btnAdd_Click" Text="Open this Account" CssClass="btn btn-success" />
                             </div>
                         </div>
                     </div>
