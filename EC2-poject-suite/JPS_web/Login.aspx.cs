@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Web;
 using System.Web.UI;
-using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
-using Owin;
-using JPS_web.Models;
 
 namespace JPS_web.Account
 {
@@ -19,6 +16,12 @@ namespace JPS_web.Account
             if (!String.IsNullOrEmpty(returnUrl))
             {
                 RegisterHyperLink.NavigateUrl += "?ReturnUrl=" + returnUrl;
+            }
+
+            // Call error pages if not authenticated
+            if(User.Identity.IsAuthenticated)
+            {
+                Response.Redirect("~/Views/ErrorPages/401.aspx");
             }
         }
 
