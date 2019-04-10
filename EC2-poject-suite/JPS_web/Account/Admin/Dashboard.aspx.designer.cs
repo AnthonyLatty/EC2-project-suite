@@ -13,31 +13,22 @@ namespace JPS_web.Account.Admin {
     public partial class Dashboard {
         
         /// <summary>
-        /// myInput1 control.
+        /// CustomerGridView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox myInput1;
+        protected global::System.Web.UI.WebControls.GridView CustomerGridView;
         
         /// <summary>
-        /// GridView1 control.
+        /// CustomerSqlDataSource control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
-        
-        /// <summary>
-        /// SqlDataSource1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
+        protected global::System.Web.UI.WebControls.SqlDataSource CustomerSqlDataSource;
         
         /// <summary>
         /// RepeaterDetails control.
