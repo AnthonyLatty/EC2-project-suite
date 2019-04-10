@@ -18,7 +18,7 @@ namespace BNS_web
         public string Date { get; set; }
         public string Type { get; set; }
         public string Details { get; set; }
-        public string Amount { get; set; }
+        public double Amount { get; set; }
         public int AccountAccountNumber { get; set; }
     
         public virtual Account2 Account { get; set; }

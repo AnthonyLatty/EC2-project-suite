@@ -87,7 +87,7 @@ namespace BNS_web.Account.Admin
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
             var signInManager = Context.GetOwinContext().Get<ApplicationSignInManager>();
             var user = new ApplicationUser() { UserName = tbEmail.Text, Email = tbEmail.Text };
-            IdentityResult result = manager.Create(user, "Password123");
+            IdentityResult result = manager.Create(user, "Password123!");
             //userMgr.AddToRole(user.Id,ddlrrole.SelectedValue);
             if (result.Succeeded)
             {

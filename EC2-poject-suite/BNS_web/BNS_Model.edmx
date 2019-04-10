@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="BNS_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="BNS_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Accounts">
           <Key>
             <PropertyRef Name="AccountNumber" />
@@ -46,7 +46,7 @@
           <Property Name="Date" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Type" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Details" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Amount" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Amount" Type="float" />
           <Property Name="AccountAccountNumber" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK_AccountAccountType">
@@ -131,8 +131,7 @@
             <End Role="Accounts" EntitySet="Accounts" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BNS_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -184,7 +183,7 @@
           <Property Name="Date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Details" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Amount" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Amount" Type="Double" />
           <Property Name="AccountAccountNumber" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Account" Relationship="Self.FK_AccountTransaction" FromRole="Transactions" ToRole="Accounts" />
         </EntityType>
@@ -267,7 +266,7 @@
             <End Role="Accounts" EntitySet="Account2" />
           </AssociationSet>
           <FunctionImport Name="cardInsert">
-            <Parameter Name="card" Mode="In" Type="Int32" />
+          <Parameter Name="card" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
       </Schema>
