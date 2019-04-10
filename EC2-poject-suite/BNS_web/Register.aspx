@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="Register" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="BNS_web.Account.Register" %>
 
+
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
     <div class="container">
         <p class="text-danger">
@@ -7,8 +8,9 @@
         </p>
 
         <div class="form-horizontal">
-            <h4>Create a new Scotia account</h4>
-            <hr />
+            <br />
+            <h4>Create your Online Banking Account</h4>
+            <br />
             <asp:ValidationSummary runat="server" CssClass="text-danger" />
             <div class="form-group">
                 <asp:Label runat="server" AssociatedControlID="Email" CssClass="col-md-2 control-label">Email</asp:Label>
@@ -37,8 +39,34 @@
                 </div>
             </div>
             <div class="form-group">
+                <asp:Label runat="server" AssociatedControlID="tbFname" CssClass="col-md-2 control-label">First Name</asp:Label>
+                <div class="col-md-10">
+                    <asp:TextBox runat="server" ID="tbFname" CssClass="form-control" TextMode="SingleLine" />
+                    <asp:RequiredFieldValidator runat="server" ControlToValidate="tbFname"
+                        CssClass="text-danger" ErrorMessage="First Name is required" />
+                </div>
+            </div>
+            <div class="form-group">
+                <asp:Label runat="server" AssociatedControlID="tbLName" CssClass="col-md-2 control-label">Last Name</asp:Label>
+                <div class="col-md-10">
+                    <asp:TextBox runat="server" ID="tbLName" CssClass="form-control" TextMode="SingleLine" />
+                    <asp:RequiredFieldValidator runat="server" ControlToValidate="tbLName"
+                        CssClass="text-danger" ErrorMessage="Last Name is required" />
+                </div>
+            </div>
+            <div class="form-group">
+                <asp:Label runat="server" AssociatedControlID="tbAddress" CssClass="col-md-2 control-label">Address</asp:Label>
+                <div class="col-md-10">
+                    <asp:TextBox runat="server" ID="tbAddress" CssClass="form-control" TextMode="SingleLine"/>
+                    <asp:RequiredFieldValidator runat="server" ControlToValidate="tbAddress"
+                        CssClass="text-danger" ErrorMessage="Address is required" />
+                </div>
+            </div>
+
+
+            <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    <asp:Button runat="server" OnClick="CreateUser_Click" Text="Register" CssClass="btn btn-default" />
+                    <asp:Button runat="server" OnClick="CreateUser_Click" Text="Register" CssClass="btn btn-success" />
                 </div>
             </div>
         </div>

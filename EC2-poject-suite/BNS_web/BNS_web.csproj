@@ -162,9 +162,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Account\Admin\ManageUsers.aspx" />
+    <Content Include="Account\Customer\AddAccount.aspx" />
+    <Content Include="Account\Customer\Transactions.aspx" />
     <Content Include="Account\Forgot.aspx" />
     <Content Include="Account\Lockout.aspx" />
     <Content Include="Account\scotiabank_logo.png" />
+    <Content Include="Account\Teller\Deposit.aspx" />
+    <Content Include="Account\Teller\ViewTransactions.aspx" />
+    <Content Include="Account\Teller\View_Customers.aspx" />
+    <Content Include="Account\Teller\Withdraw.aspx" />
     <Content Include="BNS_Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>BNS_Model.edmx</DependentUpon>
@@ -263,6 +269,20 @@
     <Compile Include="Account\Admin\ManageUsers.aspx.designer.cs">
       <DependentUpon>ManageUsers.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Account\Customer\AddAccount.aspx.cs">
+      <DependentUpon>AddAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Customer\AddAccount.aspx.designer.cs">
+      <DependentUpon>AddAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Customer\Transactions.aspx.cs">
+      <DependentUpon>Transactions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Customer\Transactions.aspx.designer.cs">
+      <DependentUpon>Transactions.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Account\Forgot.aspx.cs">
       <DependentUpon>Forgot.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -276,6 +296,34 @@
     </Compile>
     <Compile Include="Account\Lockout.aspx.designer.cs">
       <DependentUpon>Lockout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Teller\Deposit.aspx.cs">
+      <DependentUpon>Deposit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Teller\Deposit.aspx.designer.cs">
+      <DependentUpon>Deposit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Teller\ViewTransactions.aspx.cs">
+      <DependentUpon>ViewTransactions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Teller\ViewTransactions.aspx.designer.cs">
+      <DependentUpon>ViewTransactions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Teller\View_Customers.aspx.cs">
+      <DependentUpon>View_Customers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Teller\View_Customers.aspx.designer.cs">
+      <DependentUpon>View_Customers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Teller\Withdraw.aspx.cs">
+      <DependentUpon>Withdraw.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Teller\Withdraw.aspx.designer.cs">
+      <DependentUpon>Withdraw.aspx</DependentUpon>
     </Compile>
     <Compile Include="BNS_Model.Context.cs">
       <AutoGen>True</AutoGen>
@@ -404,8 +452,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Account\Customer\" />
-    <Folder Include="Account\Teller\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>

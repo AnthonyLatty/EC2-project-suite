@@ -6,6 +6,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Owin;
 using BNS_web.Models;
+using System.Data.Entity.Validation;
 
 namespace BNS_web.Account
 {
@@ -19,37 +20,42 @@ namespace BNS_web.Account
             IdentityResult result = manager.Create(user, Password.Text);
             if (result.Succeeded)
             {
-                // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
-                //string code = manager.GenerateEmailConfirmationToken(user.Id);
-                //string callbackUrl = IdentityHelper.GetUserConfirmationRedirectUrl(code, user.Id, Request);
-                //manager.SendEmail(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>.");
-
                 signInManager.SignIn(user, isPersistent: false, rememberBrowser: false);
-                IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
                 string strCurrentUserId = user.Id;
-
-                Customer cus = new Customer()
+                Customer ScotiaCustomer = new Customer()
                 {
                     CustomerID = strCurrentUserId,
-                    FirstName = "Kaheem",
-                    LastName = "Whittingham",
-                    Address = "kingston",
-                    //Add other fields
-
-
-
-
+                    Address = tbAddress.Text,
+                    FirstName = tbFname.Text,
+                    LastName = tbLName.Text
                 };
 
-                BNS_DBContainer bNS_DB = new BNS_DBContainer();
-                bNS_DB.Customers.Add(cus);
-                bNS_DB.SaveChanges();
+                BNS_DBContainer customer = new BNS_DBContainer();
+                customer.Customers.Add(ScotiaCustomer);
+                try
+                {
+                    customer.SaveChanges();
+                }
+                catch (DbEntityValidationException x)
+                {
+                    foreach (var eve in x.EntityValidationErrors)
+                    {
+                        Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
+                            eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                        foreach (var ve in eve.ValidationErrors)
+                        {
+                            Console.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
+                                ve.PropertyName, ve.ErrorMessage);
+                        }
+                    }
+                    throw;
+                }
+                IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
             }
             else
             {
                 ErrorMessage.Text = result.Errors.FirstOrDefault();
             }
-
         }
     }
 }

@@ -23,12 +23,12 @@ namespace BNS_web
             var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
 
 
-            if (!roleManager.RoleExists("Admin"))
+            if (!roleManager.RoleExists("Administrator"))
             {
                 //Create admin role
                 var adminRole = new IdentityRole
                 {
-                    Name = "Admin"
+                    Name = "Administrator"
                 };
 
                 roleManager.Create(adminRole);
