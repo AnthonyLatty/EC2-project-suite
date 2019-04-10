@@ -3,7 +3,7 @@
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
     <script>
         function openModal() {
-            $('#exampleModal').modal('show');
+            $('#PaymentModal').modal('show');
         }
 
 
@@ -28,12 +28,12 @@
     </script>
 
 
-    <asp:SqlDataSource ID="PendingBillsSqlDataSource" runat="server" DataSourceMode="DataSet" />
     <div class="container">
         <div class="row">
             <h3 style="text-align: center;">Pending Bills</h3>
             <hr style="width: 400px;" />
-            <asp:Repeater ID="PendingBillsRepeater" DataSourceID="PendingBillsSqlDataSource" runat="server" OnItemCommand="Repeater1_ItemCommand">
+            <asp:SqlDataSource ID="PendingBillsSqlDataSource" runat="server" DataSourceMode="DataSet" />
+            <asp:Repeater ID="PendingBillsRepeater" DataSourceID="PendingBillsSqlDataSource" runat="server" OnItemCommand="PendingBillsRepeater_ItemCommand">
                 <ItemTemplate>
                     <div class="col-md-4">
                         <div class="card" style="border: 1px solid rgba(0,0,0,.125);">
@@ -83,98 +83,101 @@
                 </ItemTemplate>
             </asp:Repeater>
         </div>
+        <div class="row">
+            <h3 style="text-align: center;">Bill Payments History</h3>
+            <hr style="width: 400px;" />
+            <asp:SqlDataSource ID="BillPaymentHistorySqlDataSource" runat="server" DataSourceMode="DataSet" />
+            <asp:Repeater ID="BillPaymentHistoryRepeater" DataSourceID="BillPaymentHistorySqlDataSource" runat="server">
+                <ItemTemplate>
+                    <div class="col-md-4">
+                        <div class="card" style="border: 1px solid rgba(0,0,0,.125);">
+                            <img src="../../Images/BillPaymentHistory.png" style="width: 300px; margin-left: 10%;" class="card-img-top" />
+                            <hr />
+                            <div class="card-body" style="margin: 10px;">
+                                <p style="text-align: center; font-size: 30px;">
+                                    <asp:Label ID="lblPaidBill" runat="server" Text="Paid!" Font-Bold="true" ForeColor="Green"/>
+                                </p>
+                                <p class="card-title">
+                                    <label>Bill ID: </label>
+                                    <asp:Label ID="lblBillID" Font-Bold="true" runat="server" Text='<%# Eval("BillId") %>' />
+                                </p>
+                                <p class="card-title">
+                                    <label>Customer Email: </label>
+                                    <asp:Label ID="lblCustomerId" runat="server" Font-Bold="true" Text='<%# Eval("Id") %>' />
+                                </p>
+                                <p class="card-text">
+                                    <label>Generation Date: </label>
+                                    <asp:Label ID="lblBillGenerationDate" runat="server" Font-Bold="true" Text='<%# Eval("BillGenerationDate") %>' />
+                                </p>
+                                <p class="card-text">
+                                    <label>Due Date: </label>
+                                    <asp:Label ID="lblBillDueDate" runat="server" Font-Bold="true" Text='<%# Eval("BillDueDate") %>' />
+                                </p>
+                                <p class="card-text">
+                                    <label>Premises No: </label>
+                                    <asp:Label ID="lblPremisesNumber" runat="server" Font-Bold="true" Text='<%# Eval("PremisesNumber") %>' />
+                                </p>
+                                <p class="card-text">
+                                    <label>Bill Status: </label>
+                                    <asp:Label ID="lblBillStatus" runat="server" Font-Bold="true" Text='<%# Eval("BillStatus").ToString() %>' />
+                                </p>
+                                <p class="card-text">
+                                    <label>Address: </label>
+                                    <asp:Label ID="lblAddress" runat="server" Font-Bold="true" Text='<%# Eval("Address") %>' />
+                                </p>
+                                <p class="card-text">
+                                    <label>Amount: </label>
+                                    <asp:Label ID="lblAmount" runat="server" Font-Bold="true" Font-Size="Medium" ForeColor="Green" Text='<%# String.Format("{0:C} JMD", Eval("Amount")) %>' />
+                                </p>
+                            </div>
+                        </div>
+                        <br />
+                        <br />
+                    </div>
+                </ItemTemplate>
+            </asp:Repeater>
+        </div>
     </div>
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+    <%-- Modal --%>
+    <div class="modal fade" id="PaymentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Payment Details</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                    <h5 class="modal-title" style="text-align: center;">Payment Details</h5>
                 </div>
                 <div class="modal-body">
-                    <h1>Bill ID:&nbsp;<asp:Label ID="lblBillId" runat="server"></asp:Label>
-                    </h1>
-                    <h1>Bill Amount:&nbsp;<asp:Label ID="lblBillAmount" runat="server"></asp:Label>
-                    </h1>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-xs-8 col-md-6 col-md-offset-0">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <div class="row">
-                                            <h3 class="text-center">Payment Details</h3>
-                                            <img class="img-responsive cc-img" src="http://www.prepbootstrap.com/Content/images/shared/misc/creditcardicons.png">
-                                        </div>
-                                    </div>
-                                    <div class="panel-body">
-
-                                        <div class="row">
-                                            <div class="col-xs-12">
-                                                <div class="form-group">
-                                                    <label>CARD NUMBER</label>
-                                                    <div class="input-group">
-                                                        <span class="input-group-addon"><span class="fa fa-credit-card"></span></span>
-                                                        <asp:TextBox ID="tbcardnum" class="form-control" runat="server" ValidationGroup="Verify" placeholder="Valid Card Number"></asp:TextBox>
-
-                                                        <div class="form-group">
-                                                            <asp:RequiredFieldValidator ValidationGroup="Verify" ID="RequiredFieldValidator2"
-                                                                ControlToValidate="tbcardnum"
-                                                                Display="Static"
-                                                                ErrorMessage="Please Enter Card Number"
-                                                                ForeColor="Red"
-                                                                runat="server" />
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <asp:RegularExpressionValidator ValidationGroup="Verify" ID="RegularExpressionValidator1" runat="server"
-                                                                ErrorMessage="Card numbers are 12 digit long" ForeColor="Red" ControlToValidate="tbcardnum"
-                                                                ValidationExpression="^[0-9]{12}$"></asp:RegularExpressionValidator>
-                                                        </div>
-                                                        <asp:CustomValidator runat="server" ValidationGroup="Verify" Display="Dynamic" ID="customValidator1" ForeColor="Red" ClientValidationFunction="CardNumValidation" ErrorMessage="">  
-                                                        </asp:CustomValidator>
-
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-xs-7 col-md-7">
-                                                    <div class="form-group">
-                                                        <label><span class="hidden-xs">EXPIRATION</span><span class="visible-xs-inline">EXP</span> DATE</label>
-                                                        <input type="tel" class="form-control" placeholder="MM / YY" />
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-5 col-md-5 pull-right">
-                                                    <div class="form-group">
-                                                        <label>CV CODE</label>
-                                                        <input type="tel" class="form-control" placeholder="CVC" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-xs-12">
-                                                    <div class="form-group">
-                                                        <label>CARD OWNER</label>
-                                                        <input type="text" class="form-control" placeholder="Card Owner Names" />
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                        <div class="panel-footer">
-                                            <div class="row">
-                                                <div class="col-xs-12">
-                                                    <asp:Button class="btn btn-warning btn-lg btn-block" ID="btnPaybill" ValidationGroup="Verify" OnClick="btnPaybill_Click" CausesValidation="true" runat="server" Text="Process payment" />
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                    <p>
+                        Bill ID:&nbsp;
+                        <asp:Label ID="lblBillId" runat="server" />
+                    </p>
+                    <p>
+                        Bill Amount:&nbsp;
+                        <asp:Label ID="lblBillAmount" runat="server" ForeColor="Green" />
+                    </p>
+                    <br />
+                    <div class="form-group">
+                        <div class="form-group">
+                            <p>
+                                <asp:Label ID="lblCardNumber" runat="server" Font-Bold="true" Text="Card No. (Credit or Debit Card)" />
+                            </p>
+                            <asp:TextBox ID="tbcardnum" class="form-control" runat="server" ValidationGroup="Verify" placeholder="Enter Valid Card Number" />
+                            <asp:RequiredFieldValidator ValidationGroup="Verify" ID="RequiredFieldValidator2"
+                                ControlToValidate="tbcardnum"
+                                Display="Static"
+                                ErrorMessage="Please Enter Card Number"
+                                ForeColor="Red"
+                                runat="server" />
+                            <asp:RegularExpressionValidator CssClass="form-control" ValidationGroup="Verify" ID="RegularExpressionValidator1" runat="server"
+                                ErrorMessage="Card numbers are 12 digit long" ForeColor="Red" ControlToValidate="tbcardnum"
+                                ValidationExpression="^[0-9]{12}$" />
+                            <asp:CustomValidator runat="server" ValidationGroup="Verify" Display="Dynamic" ID="customValidator1" ForeColor="Red" ClientValidationFunction="CardNumValidation" ErrorMessage="" />
                         </div>
                     </div>
+                </div>
+                <div class="modal-footer">
+                    <asp:Button class="btn btn-success" ID="btnPaybill" ValidationGroup="Verify" OnClick="btnPaybill_Click" CausesValidation="true" runat="server" Text="Process payment" />
+                    <asp:Button ID="btnCancelPayment" runat="server" Text="Cancel" CausesValidation="false" CssClass="btn btn-warning" OnClick="btnCancelPayment_Click" />
                 </div>
             </div>
         </div>

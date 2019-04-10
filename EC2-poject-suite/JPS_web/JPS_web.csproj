@@ -279,6 +279,7 @@
     <Content Include="DynamicData\FieldTemplates\Text_Edit.ascx" />
     <Content Include="DynamicData\FieldTemplates\Url.ascx" />
     <Content Include="DynamicData\FieldTemplates\Url_Edit.ascx" />
+    <Content Include="Images\BillPaymentHistory.png" />
     <Content Include="Images\error_emoji.png" />
     <Content Include="Images\JPS-Man.png" />
     <Content Include="Images\PaymentBill.png" />

@@ -13,23 +13,26 @@ namespace JPS_web.Account.Customer
         {
             if (!IsPostBack)
             {
+                // Pending Bills
                 PendingBillsSqlDataSource.ConnectionString = GetConnectionString();
                 PendingBillsSqlDataSource.SelectCommand = "SELECT * FROM Bills WHERE Id = '" + User.Identity.Name + "' AND BillStatus = 0";
+
+                // Paid Bills
+                BillPaymentHistorySqlDataSource.ConnectionString = GetConnectionString();
+                BillPaymentHistorySqlDataSource.SelectCommand = "SELECT * FROM Bills WHERE Id = '" + User.Identity.Name + "' AND BillStatus = 1";
             }
         }
         protected void cusCustom_ServerValidate(object sender, ServerValidateEventArgs e)
         {
-            String first_four = e.Value.ToString().Substring(0, 4);
+            string first_four = e.Value.ToString().Substring(0, 4);
 
-
-            if ((String.Compare(first_four, "4001") == 0) || (String.Compare(first_four, "9505") == 0))
+            if ((string.Compare(first_four, "4001") == 0) || (string.Compare(first_four, "9505") == 0))
             {
                 e.IsValid = true;
             }
             else
             {
                 e.IsValid = false;
-
             }
         }
 
@@ -41,26 +44,6 @@ namespace JPS_web.Account.Customer
 
 
         protected void PendingBillsRepeater_ItemCommand(object source, RepeaterCommandEventArgs e)
-        {
-            switch (e.CommandName)
-            {
-                case "Redirect":
-                    //foreach (RepeaterItem item in PendingBillsRepeater.Items)
-                    //{
-                    //    var lblBill = (Label)PendingBillsRepeater.FindControl("lblAddress");
-                    //    var a = lblBill.Text.ToString();
-
-                    //    Response.Redirect("Payment.aspx?BillId=" + a);
-                    //}
-
-                    Session.Abandon();
-                    Session.Clear();
-                    Response.Redirect("Payment.aspx");
-                    break;
-            }
-        }
-
-        protected void Repeater1_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
             switch (e.CommandName)
             {
@@ -81,42 +64,43 @@ namespace JPS_web.Account.Customer
 
                         ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
                     }
-
                     break;
             }
         }
 
         protected void btnPaybill_Click(object sender, EventArgs e)
         {
-
-            var first_four = tbcardnum.Text.Substring(0, 4);
-
-            if (first_four == "9505")
+            if (IsValid)
             {
+                var first_four_digit = tbcardnum.Text.Substring(0, 4);
 
-
-                NCBServiceReference.NCB_ServiceClient client = new NCBServiceReference.NCB_ServiceClient();
-                client.getPayment(amount, Convert.ToInt64(tbcardnum.Text));
-
-                int billID = Convert.ToInt32(lblBillId.Text);
-
-
-                using (JPS_web.JPS_webEntities customer = new JPS_webEntities())
+                if (first_four_digit == "9505")
                 {
+                    NCBServiceReference.NCB_ServiceClient client = new NCBServiceReference.NCB_ServiceClient();
+                    client.getPayment(amount, Convert.ToInt64(tbcardnum.Text));
 
-                    JPS_web.Bill bill = customer.Bills.SingleOrDefault(x => x.BillId == billID);
+                    int billID = Convert.ToInt32(lblBillId.Text);
 
-                    bill.BillStatus = 1;
+                    using (JPS_webEntities customer = new JPS_webEntities())
+                    {
+                        Bill bill = customer.Bills.SingleOrDefault(x => x.BillId == billID);
 
-                    customer.SaveChanges();
+                        bill.BillStatus = 1;
 
+                        customer.SaveChanges();
+                    }
+                    Response.Redirect("ManageBill.aspx");
                 }
-                Response.Redirect("ManageBill.aspx");
+                else if (first_four_digit == "4001")
+                {
+                    // ASMX Service call here...
+                }
             }
-            else if (first_four == "4001")
-            {
+        }
 
-            }
+        protected void btnCancelPayment_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ManageBill.aspx");
         }
     }
 }

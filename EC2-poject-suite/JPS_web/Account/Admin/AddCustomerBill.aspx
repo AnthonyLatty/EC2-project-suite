@@ -3,7 +3,6 @@
 <%@ Register Src="~/DatepickerUserControl.ascx" TagPrefix="uc1" TagName="DatePicker" %>
 
 <asp:Content runat="server" ContentPlaceHolderID="MainContent" ID="BodyContent">
-
     <div class="container">
         <div class="row">
             <div class="col-md-8">

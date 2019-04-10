@@ -31,6 +31,24 @@ namespace JPS_web.Account.Customer {
         protected global::System.Web.UI.WebControls.Repeater PendingBillsRepeater;
         
         /// <summary>
+        /// BillPaymentHistorySqlDataSource control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource BillPaymentHistorySqlDataSource;
+        
+        /// <summary>
+        /// BillPaymentHistoryRepeater control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater BillPaymentHistoryRepeater;
+        
+        /// <summary>
         /// lblBillId control.
         /// </summary>
         /// <remarks>
@@ -47,6 +65,15 @@ namespace JPS_web.Account.Customer {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblBillAmount;
+        
+        /// <summary>
+        /// lblCardNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCardNumber;
         
         /// <summary>
         /// tbcardnum control.
@@ -92,5 +119,14 @@ namespace JPS_web.Account.Customer {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnPaybill;
+        
+        /// <summary>
+        /// btnCancelPayment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCancelPayment;
     }
 }
