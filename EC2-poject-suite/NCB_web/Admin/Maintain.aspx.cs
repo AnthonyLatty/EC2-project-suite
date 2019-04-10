@@ -4,7 +4,6 @@ using Microsoft.AspNet.Identity.Owin;
 using NCB_web.Models;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web;
 using System.Web.ModelBinding;
@@ -13,7 +12,7 @@ using System.Web.UI.WebControls;
 
 namespace NCB_web.Admin
 {
-    public partial class Maintain : System.Web.UI.Page
+    public partial class Maintain : Page
     {
         public static string useridnum;
         ApplicationUserManager userMgr;
@@ -88,16 +87,10 @@ namespace NCB_web.Admin
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
             var signInManager = Context.GetOwinContext().Get<ApplicationSignInManager>();
             var user = new ApplicationUser() { UserName = tbEmail.Text, Email = tbEmail.Text };
-            IdentityResult result = manager.Create(user, "Tabianna1223!");
+            IdentityResult result = manager.Create(user, "Password123");
             //userMgr.AddToRole(user.Id,ddlrrole.SelectedValue);
             if (result.Succeeded)
             {
-                // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
-                //string code = manager.GenerateEmailConfirmationToken(user.Id);
-                //string callbackUrl = IdentityHelper.GetUserConfirmationRedirectUrl(code, user.Id, Request);
-                //manager.SendEmail(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>.");
-
-               
                 string strnewUserId = user.Id;
                 Customer1 NcbCustomer = new Customer1()
                 {
@@ -105,22 +98,14 @@ namespace NCB_web.Admin
                     Address = tbAddress.Text,
                     FirstName = tbFname.Text,
                     LastName = tbLName.Text
-
-
-
-
-
                 };
                 AddUserToRole(tbEmail.Text, ddlrrole.SelectedValue);
 
-
+                // Save additional fields to Customer Table
                 BNS_webEntities1 customer = new BNS_webEntities1();
                 customer.Customer1.Add(NcbCustomer);
                 customer.SaveChanges();
                 Response.Redirect(Request.RawUrl);
-
-
-
             }
             else
             {
