@@ -31,6 +31,42 @@ namespace JPS_web.Account.Admin {
         protected global::System.Web.UI.WebControls.SqlDataSource CustomerSqlDataSource;
         
         /// <summary>
+        /// PendingBillGridView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView PendingBillGridView;
+        
+        /// <summary>
+        /// PendingBillSqlDataSource control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource PendingBillSqlDataSource;
+        
+        /// <summary>
+        /// PaidBillGridView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView PaidBillGridView;
+        
+        /// <summary>
+        /// PaidBillsSqlDataSource control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource PaidBillsSqlDataSource;
+        
+        /// <summary>
         /// RepeaterDetails control.
         /// </summary>
         /// <remarks>
