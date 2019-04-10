@@ -25,26 +25,26 @@ namespace NCB_web.Account1
                 //string callbackUrl = IdentityHelper.GetUserConfirmationRedirectUrl(code, user.Id, Request);
                 //manager.SendEmail(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>.");
 
-                signInManager.SignIn( user, isPersistent: false, rememberBrowser: false);
+                signInManager.SignIn(user, isPersistent: false, rememberBrowser: false);
                 string strCurrentUserId = user.Id;
-               Customer1 NcbCustomer = new Customer1()
+                Customer1 NcbCustomer = new Customer1()
                 {
                     CustomerID = strCurrentUserId,
                     Address = tbAddress.Text,
                     FirstName = tbFname.Text,
                     LastName = tbLName.Text
-                
 
 
 
-                    
+
+
                 };
 
 
                 BNS_webEntities1 customer = new BNS_webEntities1();
                 customer.Customer1.Add(NcbCustomer);
-              
-               
+
+
                 try
                 {
                     // Your code...
@@ -67,7 +67,7 @@ namespace NCB_web.Account1
                 }
                 IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
             }
-            else 
+            else
             {
                 ErrorMessage.Text = result.Errors.FirstOrDefault();
             }

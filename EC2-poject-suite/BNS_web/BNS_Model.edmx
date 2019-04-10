@@ -1,0 +1,352 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BNS_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Accounts">
+          <Key>
+            <PropertyRef Name="AccountNumber" />
+          </Key>
+          <Property Name="AccountNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Balance" Type="float" Nullable="false" />
+          <Property Name="CustomerCustomerID" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="AccountType_AccountTID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AccountTypes">
+          <Key>
+            <PropertyRef Name="AccountTID" />
+          </Key>
+          <Property Name="AccountTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AccountName" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CardNumbers">
+          <Key>
+            <PropertyRef Name="CardNum" />
+          </Key>
+          <Property Name="CardNum" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AccountAccountNumber" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Role" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Transactions">
+          <Key>
+            <PropertyRef Name="TransID" />
+          </Key>
+          <Property Name="TransID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Date" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Details" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Amount" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="AccountAccountNumber" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_AccountAccountType">
+          <End Role="AccountTypes" Type="Self.AccountTypes" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Accounts" Type="Self.Accounts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AccountTypes">
+              <PropertyRef Name="AccountTID" />
+            </Principal>
+            <Dependent Role="Accounts">
+              <PropertyRef Name="AccountType_AccountTID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AccountCardNumber">
+          <End Role="Accounts" Type="Self.Accounts" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CardNumbers" Type="Self.CardNumbers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accounts">
+              <PropertyRef Name="AccountNumber" />
+            </Principal>
+            <Dependent Role="CardNumbers">
+              <PropertyRef Name="AccountAccountNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AccountTransaction">
+          <End Role="Accounts" Type="Self.Accounts" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Transactions" Type="Self.Transactions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accounts">
+              <PropertyRef Name="AccountNumber" />
+            </Principal>
+            <Dependent Role="Transactions">
+              <PropertyRef Name="AccountAccountNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerAccount">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Accounts" Type="Self.Accounts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="Accounts">
+              <PropertyRef Name="CustomerCustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="cardInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="card" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="BNS_DBModelStoreContainer">
+          <EntitySet Name="Accounts" EntityType="Self.Accounts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AccountTypes" EntityType="Self.AccountTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CardNumbers" EntityType="Self.CardNumbers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Transactions" EntityType="Self.Transactions" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AccountAccountType" Association="Self.FK_AccountAccountType">
+            <End Role="AccountTypes" EntitySet="AccountTypes" />
+            <End Role="Accounts" EntitySet="Accounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AccountCardNumber" Association="Self.FK_AccountCardNumber">
+            <End Role="Accounts" EntitySet="Accounts" />
+            <End Role="CardNumbers" EntitySet="CardNumbers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AccountTransaction" Association="Self.FK_AccountTransaction">
+            <End Role="Accounts" EntitySet="Accounts" />
+            <End Role="Transactions" EntitySet="Transactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerAccount" Association="Self.FK_CustomerAccount">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Accounts" EntitySet="Accounts" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BNS_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Account2">
+          <Key>
+            <PropertyRef Name="AccountNumber" />
+          </Key>
+          <Property Name="AccountNumber" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Balance" Type="Double" Nullable="false" />
+          <Property Name="CustomerCustomerID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AccountType_AccountTID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AccountType" Relationship="Self.FK_AccountAccountType" FromRole="Accounts" ToRole="AccountTypes" />
+          <NavigationProperty Name="CardNumbers" Relationship="Self.FK_AccountCardNumber" FromRole="Accounts" ToRole="CardNumbers" />
+          <NavigationProperty Name="Transactions" Relationship="Self.FK_AccountTransaction" FromRole="Accounts" ToRole="Transactions" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_CustomerAccount" FromRole="Accounts" ToRole="Customers" />
+        </EntityType>
+        <EntityType Name="AccountType">
+          <Key>
+            <PropertyRef Name="AccountTID" />
+          </Key>
+          <Property Name="AccountTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AccountName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Accounts" Relationship="Self.FK_AccountAccountType" FromRole="AccountTypes" ToRole="Accounts" />
+        </EntityType>
+        <EntityType Name="CardNumber">
+          <Key>
+            <PropertyRef Name="CardNum" />
+          </Key>
+          <Property Name="CardNum" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AccountAccountNumber" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Account" Relationship="Self.FK_AccountCardNumber" FromRole="CardNumbers" ToRole="Accounts" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Accounts" Relationship="Self.FK_CustomerAccount" FromRole="Customers" ToRole="Accounts" />
+        </EntityType>
+        <EntityType Name="Transaction">
+          <Key>
+            <PropertyRef Name="TransID" />
+          </Key>
+          <Property Name="TransID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Details" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Amount" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AccountAccountNumber" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Account" Relationship="Self.FK_AccountTransaction" FromRole="Transactions" ToRole="Accounts" />
+        </EntityType>
+        <Association Name="FK_AccountAccountType">
+          <End Role="AccountTypes" Type="Self.AccountType" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Accounts" Type="BNS_DBModel.Account2" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AccountTypes">
+              <PropertyRef Name="AccountTID" />
+            </Principal>
+            <Dependent Role="Accounts">
+              <PropertyRef Name="AccountType_AccountTID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AccountCardNumber">
+          <End Role="Accounts" Type="BNS_DBModel.Account2" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CardNumbers" Type="Self.CardNumber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accounts">
+              <PropertyRef Name="AccountNumber" />
+            </Principal>
+            <Dependent Role="CardNumbers">
+              <PropertyRef Name="AccountAccountNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AccountTransaction">
+          <End Role="Accounts" Type="BNS_DBModel.Account2" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Transactions" Type="Self.Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accounts">
+              <PropertyRef Name="AccountNumber" />
+            </Principal>
+            <Dependent Role="Transactions">
+              <PropertyRef Name="AccountAccountNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerAccount">
+          <End Role="Customers" Type="Self.Customer" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Accounts" Type="BNS_DBModel.Account2" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="Accounts">
+              <PropertyRef Name="CustomerCustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BNS_DBContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Account2" EntityType="BNS_DBModel.Account2" />
+          <EntitySet Name="AccountTypes" EntityType="Self.AccountType" />
+          <EntitySet Name="CardNumbers" EntityType="Self.CardNumber" />
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="Transactions" EntityType="Self.Transaction" />
+          <AssociationSet Name="FK_AccountAccountType" Association="Self.FK_AccountAccountType">
+            <End Role="AccountTypes" EntitySet="AccountTypes" />
+            <End Role="Accounts" EntitySet="Account2" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AccountCardNumber" Association="Self.FK_AccountCardNumber">
+            <End Role="Accounts" EntitySet="Account2" />
+            <End Role="CardNumbers" EntitySet="CardNumbers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AccountTransaction" Association="Self.FK_AccountTransaction">
+            <End Role="Accounts" EntitySet="Account2" />
+            <End Role="Transactions" EntitySet="Transactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerAccount" Association="Self.FK_CustomerAccount">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Accounts" EntitySet="Account2" />
+          </AssociationSet>
+          <FunctionImport Name="cardInsert">
+            <Parameter Name="card" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BNS_DBModelStoreContainer" CdmEntityContainer="BNS_DBContainer">
+          <EntitySetMapping Name="Account2">
+            <EntityTypeMapping TypeName="BNS_DBModel.Account2">
+              <MappingFragment StoreEntitySet="Accounts">
+                <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+                <ScalarProperty Name="CustomerCustomerID" ColumnName="CustomerCustomerID" />
+                <ScalarProperty Name="AccountType_AccountTID" ColumnName="AccountType_AccountTID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AccountTypes">
+            <EntityTypeMapping TypeName="BNS_DBModel.AccountType">
+              <MappingFragment StoreEntitySet="AccountTypes">
+                <ScalarProperty Name="AccountTID" ColumnName="AccountTID" />
+                <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CardNumbers">
+            <EntityTypeMapping TypeName="BNS_DBModel.CardNumber">
+              <MappingFragment StoreEntitySet="CardNumbers">
+                <ScalarProperty Name="CardNum" ColumnName="CardNum" />
+                <ScalarProperty Name="AccountAccountNumber" ColumnName="AccountAccountNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="BNS_DBModel.Customer">
+              <MappingFragment StoreEntitySet="Customers">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Transactions">
+            <EntityTypeMapping TypeName="BNS_DBModel.Transaction">
+              <MappingFragment StoreEntitySet="Transactions">
+                <ScalarProperty Name="TransID" ColumnName="TransID" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Details" ColumnName="Details" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="AccountAccountNumber" ColumnName="AccountAccountNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="cardInsert" FunctionName="BNS_DBModel.Store.cardInsert" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
