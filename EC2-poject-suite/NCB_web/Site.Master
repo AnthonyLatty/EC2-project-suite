@@ -56,7 +56,7 @@
                         <li><a runat="server" href="~/">Home</a></li>
 
                         <li><a runat="server" id="admin" href="~/Admin/Maintain.aspx">Admin</a></li>
-                        <li><a runat="server" id="openacc" href="~/Customer/AddAccount.aspx">Open Account</a></li>
+                        <li><a runat="server" id="openacc" href="~/Customer/AddAccount.aspx">Open an Account</a></li>
                         <li class="dropdown" runat="server" id="account">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Account
         <span class="caret"></span></a>
@@ -74,7 +74,7 @@
 
                             </ul>
                         </li>
-                        <li><a runat="server" id="dash" href="~/Customer/Dashboard.aspx">Dashboard</a></li>
+                        <li><a runat="server" id="dash" href="~/Customer/Transactions.aspx">Transactions</a></li>
                     </ul>
 
                     <asp:LoginView runat="server" ViewStateMode="Disabled">

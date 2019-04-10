@@ -195,7 +195,7 @@
     <Content Include="Content\Main.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Customer\AddAccount.aspx" />
-    <Content Include="Customer\Dashboard.aspx" />
+    <Content Include="Customer\Transactions.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -377,12 +377,12 @@
     <Compile Include="Customer\AddAccount.aspx.designer.cs">
       <DependentUpon>AddAccount.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Customer\Dashboard.aspx.cs">
-      <DependentUpon>Dashboard.aspx</DependentUpon>
+    <Compile Include="Customer\Transactions.aspx.cs">
+      <DependentUpon>Transactions.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Customer\Dashboard.aspx.designer.cs">
-      <DependentUpon>Dashboard.aspx</DependentUpon>
+    <Compile Include="Customer\Transactions.aspx.designer.cs">
+      <DependentUpon>Transactions.aspx</DependentUpon>
     </Compile>
     <Compile Include="C__MigrationHistory.cs">
       <DependentUpon>NCBmodel.tt</DependentUpon>

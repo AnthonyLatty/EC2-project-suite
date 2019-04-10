@@ -25,8 +25,9 @@
             }
 
         }
-
     </script>
+
+
     <asp:SqlDataSource ID="PendingBillsSqlDataSource" runat="server" DataSourceMode="DataSet" />
     <div class="container">
         <div class="row">
@@ -169,14 +170,12 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        l
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
