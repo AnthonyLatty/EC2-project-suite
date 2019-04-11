@@ -37,110 +37,70 @@
         </asp:ScriptManager>
 
 
-        <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar navbar-default navbar-fixed-top">
             <div class="container">
-                <asp:LoginView runat="server" ViewStateMode="Disabled">
-                    <AnonymousTemplate>
-                        <ul class="nav navbar-nav navbar-right">
-                            <li><a runat="server" href="~/Register">Register</a></li>
-                            <li><a runat="server" href="~/Login">Log in</a></li>
-                        </ul>
-                    </AnonymousTemplate>
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" runat="server" href="~/">
+                        <img class="logo" src="../../Account/scotiabank_logo.png" />
+                    </a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a runat="server" href="~/">Home</a></li>
 
-                    <RoleGroups>
-                        <%-- Admin Role --%>
-                        <asp:RoleGroup Roles="Admin">
-                            <ContentTemplate>
-                                <div class="navbar-collapse collapse">
-                                    <ul class="nav navbar-nav">
-                                        <li><a href="Account/Admin/ManageUsers">Manage Users</a></li>
-                                    </ul>
+                        <li><a runat="server" id="admin" href="~/Account/Admin/ManageUsers.aspx">Admin</a></li>
+                        <li><a runat="server" id="openacc" href="~/Account/Customer/AddAccount.aspx">Open an Account</a></li>
+                        <li class="dropdown" runat="server" id="account">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Account
+        <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a runat="server" href="~/Account/Teller/Withdraw.aspx">Withdraw</a></li>
+                                <li><a runat="server" href="~/Account/Teller/Deposit.aspx">Deposit</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown" runat="server" id="viewcus">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Customers
+        <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a runat="server" href="~/Account/Teller/View_Customers.aspx">View Customers</a></li>
+                                <li><a runat="server" href="~/Account/Teller/ViewTransactions.aspx">View transactions</a></li>
 
-                                    <ul class="nav navbar-nav navbar-right">
-                                        <li>
-                                            <a runat="server" href="~/Account/Manage" title="Manage your account"><%: Context.User.Identity.GetUserName()  %></a>
-                                        </li>
-                                        <li>
-                                            <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
-                                        </li>
-                                    </ul>
-                                </div>
-                            </ContentTemplate>
-                        </asp:RoleGroup>
+                            </ul>
+                        </li>
+                        <li><a runat="server" id="dash" href="~/Account/Customer/Transactions.aspx">Transactions</a></li>
+                    </ul>
 
-                        <%-- Customer Role --%>
-                        <asp:RoleGroup Roles="Customer">
-                            <ContentTemplate>
-                                <div class="navbar-collapse collapse">
-                                    <ul class="nav navbar-nav">
-                                        <li><a runat="server" href="#"></a></li>
-                                    </ul>
-
-                                    <ul class="nav navbar-nav navbar-right">
-                                        <li>
-                                            <a runat="server" href="~/Account/Manage" title="Manage your account">Welcome, <%: Context.User.Identity.GetUserName()  %> </a>
-                                        </li>
-                                        <li>
-                                            <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
-                                        </li>
-                                    </ul>
-                                </div>
-                            </ContentTemplate>
-                        </asp:RoleGroup>
-
-                        <%-- Teller Role --%>
-                        <asp:RoleGroup Roles="Teller">
-                            <ContentTemplate>
-                                <div class="navbar-collapse collapse">
-                                    <ul class="nav navbar-nav">
-                                        <li><a runat="server" href="#"></a></li>
-                                    </ul>
-
-                                    <ul class="nav navbar-nav navbar-right">
-                                        <li>
-                                            <a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a>
-                                        </li>
-                                        <li>
-                                            <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
-                                        </li>
-                                    </ul>
-                                </div>
-                            </ContentTemplate>
-                        </asp:RoleGroup>
-                    </RoleGroups>
-                </asp:LoginView>
-            </div>
-        </nav>
-
-        <nav class="navbar-expand-md">
-            <div class="navbar navbar-default">
-                <div class="container">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand" runat="server" href="~/">
-                            <img class="logo" src="../../Account/scotiabank_logo.png" />
-                        </a>
-                    </div>
-                    <div class="navbar-collapse collapse">
-                        <ul class="nav navbar-nav">
-                            <li><a runat="server" href="~/">Home</a></li>
-                        </ul>
-                    </div>
+                    <asp:LoginView runat="server" ViewStateMode="Disabled">
+                        <AnonymousTemplate>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a runat="server" href="~/Register.aspx">Register</a></li>
+                                <li><a runat="server" href="~/Login.aspx">Log in</a></li>
+                            </ul>
+                        </AnonymousTemplate>
+                        <LoggedInTemplate>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
+                                <li>
+                                    <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                                </li>
+                            </ul>
+                        </LoggedInTemplate>
+                    </asp:LoginView>
                 </div>
             </div>
-        </nav>
+        </div>
+        <div class="body-content">
+            <asp:ContentPlaceHolder ID="Banner" runat="server"></asp:ContentPlaceHolder>
 
-
-        <div class="Container body-content">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server">
-            </asp:ContentPlaceHolder>
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p class="footer">&copy; <%: DateTime.Now.Year %> - Bank of Nova Scotia</p>
+                <p class="footer">&copy; <%: DateTime.Now.Year %> - National Commercial Bank</p>
             </footer>
         </div>
     </form>

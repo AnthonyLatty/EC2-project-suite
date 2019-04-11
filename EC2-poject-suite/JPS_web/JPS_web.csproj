@@ -169,14 +169,24 @@
     <Content Include="Account\Admin\AddCustomerBill.aspx" />
     <Content Include="Account\Admin\Dashboard.aspx" />
     <Content Include="Account\Customer\ManageBill.aspx" />
-    <Content Include="Account\Customer\Payment.aspx" />
     <Content Include="Account\Forgot.aspx" />
     <Content Include="Account\JPS-official-logo.png" />
     <Content Include="Account\Lockout.aspx" />
+    <None Include="Connected Services\BNS_ServiceReference\BNS_Service.wsdl" />
+    <Content Include="Connected Services\BNS_ServiceReference\JPS_web.BNS_ServiceReference.getPaymentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\NCBServiceReference\NCB_Service.disco" />
     <None Include="Connected Services\NCBServiceReference\configuration91.svcinfo" />
     <None Include="Connected Services\NCBServiceReference\configuration.svcinfo" />
     <None Include="Connected Services\NCBServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\BNS_ServiceReference\BNS_Service.disco" />
+    <None Include="Connected Services\BNS_ServiceReference\configuration91.svcinfo" />
+    <None Include="Connected Services\BNS_ServiceReference\configuration.svcinfo" />
+    <None Include="Connected Services\BNS_ServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -418,13 +428,6 @@
     <Compile Include="Account\Customer\ManageBill.aspx.designer.cs">
       <DependentUpon>ManageBill.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Account\Customer\Payment.aspx.cs">
-      <DependentUpon>Payment.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\Customer\Payment.aspx.designer.cs">
-      <DependentUpon>Payment.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Account\Forgot.aspx.cs">
       <DependentUpon>Forgot.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -441,6 +444,11 @@
     </Compile>
     <Compile Include="Bill.cs">
       <DependentUpon>JPSmodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\BNS_ServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Connected Services\NCBServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -920,6 +928,7 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\BNS_ServiceReference\" />
     <WCFMetadataStorage Include="Connected Services\NCBServiceReference\" />
   </ItemGroup>
   <PropertyGroup>

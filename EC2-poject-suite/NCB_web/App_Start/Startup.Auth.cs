@@ -11,7 +11,7 @@ using NCB_web.Models;
 
 namespace NCB_web
 {
-    public partial class Startup {
+    public partial class NCBStartup {
 
         // For more information on configuring authentication, please visit https://go.microsoft.com/fwlink/?LinkId=301883
         public void ConfigureAuth(IAppBuilder app)

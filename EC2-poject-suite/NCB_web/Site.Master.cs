@@ -67,6 +67,7 @@ namespace NCB_web
             }
         }
 
+        // Renders page dynamically
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.User.IsInRole("Customer"))

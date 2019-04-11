@@ -20,35 +20,20 @@ namespace NCB_web.Account1
             IdentityResult result = manager.Create(user, Password.Text);
             if (result.Succeeded)
             {
-                // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
-                //string code = manager.GenerateEmailConfirmationToken(user.Id);
-                //string callbackUrl = IdentityHelper.GetUserConfirmationRedirectUrl(code, user.Id, Request);
-                //manager.SendEmail(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>.");
-
-                signInManager.SignIn( user, isPersistent: false, rememberBrowser: false);
+                signInManager.SignIn(user, isPersistent: false, rememberBrowser: false);
                 string strCurrentUserId = user.Id;
-               Customer1 NcbCustomer = new Customer1()
+                Customer1 NcbCustomer = new Customer1()
                 {
                     CustomerID = strCurrentUserId,
                     Address = tbAddress.Text,
                     FirstName = tbFname.Text,
                     LastName = tbLName.Text
-                
-
-
-
-                    
                 };
 
-
                 BNS_webEntities1 customer = new BNS_webEntities1();
-                customer.Customer1.Add(NcbCustomer);
-              
-               
+                customer.Customer.Add(NcbCustomer);
                 try
                 {
-                    // Your code...
-                    // Could also be before try if you know the exception occurs in SaveChanges
                     customer.SaveChanges();
                 }
                 catch (DbEntityValidationException x)
@@ -67,7 +52,7 @@ namespace NCB_web.Account1
                 }
                 IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
             }
-            else 
+            else
             {
                 ErrorMessage.Text = result.Errors.FirstOrDefault();
             }

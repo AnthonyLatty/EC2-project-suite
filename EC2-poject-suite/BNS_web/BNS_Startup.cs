@@ -5,10 +5,10 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartupAttribute(typeof(BNS_web.Startup))]
+[assembly: OwinStartupAttribute("BNS",typeof(BNS_web.BNS_Startup))]
 namespace BNS_web
 {
-    public partial class Startup {
+    public partial class BNS_Startup {
         public void Configuration(IAppBuilder app) {
             ConfigureAuth(app);
 
@@ -23,12 +23,12 @@ namespace BNS_web
             var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
 
 
-            if (!roleManager.RoleExists("Admin"))
+            if (!roleManager.RoleExists("Administrator"))
             {
                 //Create admin role
                 var adminRole = new IdentityRole
                 {
-                    Name = "Admin"
+                    Name = "Administrator"
                 };
 
                 roleManager.Create(adminRole);

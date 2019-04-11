@@ -7,18 +7,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JPS_web.Account.Customer {
+namespace BNS_web.Account.Customers {
     
     
-    public partial class Payment {
+    public partial class Transactions {
         
         /// <summary>
-        /// PaymentForm control.
+        /// RepterDetails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FormView PaymentForm;
+        protected global::System.Web.UI.WebControls.Repeater RepterDetails;
+        
+        /// <summary>
+        /// Repeater1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater Repeater1;
     }
 }

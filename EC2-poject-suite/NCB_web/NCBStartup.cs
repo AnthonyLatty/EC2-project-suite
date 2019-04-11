@@ -5,10 +5,10 @@ using Microsoft.Owin;
 using NCB_web.Models;
 using Owin;
 
-[assembly: OwinStartupAttribute(typeof(NCB_web.Startup))]
+[assembly: OwinStartupAttribute(typeof(NCB_web.NCBStartup))]
 namespace NCB_web
 {
-    public partial class Startup {
+    public partial class NCBStartup {
         public void Configuration(IAppBuilder app) {
             ConfigureAuth(app);
 

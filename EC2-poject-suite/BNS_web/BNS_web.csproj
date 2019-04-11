@@ -53,6 +53,8 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -160,9 +162,25 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Account\Admin\ManageUsers.aspx" />
+    <Content Include="Account\Customer\AddAccount.aspx" />
+    <Content Include="Account\Customer\Transactions.aspx" />
     <Content Include="Account\Forgot.aspx" />
     <Content Include="Account\Lockout.aspx" />
     <Content Include="Account\scotiabank_logo.png" />
+    <Content Include="Account\Teller\Deposit.aspx" />
+    <Content Include="Account\Teller\ViewTransactions.aspx" />
+    <Content Include="Account\Teller\View_Customers.aspx" />
+    <Content Include="Account\Teller\Withdraw.aspx" />
+    <Content Include="BNS_Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BNS_Model.edmx</DependentUpon>
+      <LastGenOutput>BNS_Model.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="BNS_Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BNS_Model.edmx</DependentUpon>
+      <LastGenOutput>BNS_Model.cs</LastGenOutput>
+    </Content>
     <Content Include="Content\Error.css" />
     <Content Include="Content\Main.css" />
     <Content Include="Images\BNS-header.jpg" />
@@ -191,6 +209,14 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Account\Web.config" />
+    <Content Include="WebService\BNS_Service.asmx" />
+    <EntityDeploy Include="BNS_Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>BNS_Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="BNS_Model.edmx.diagram">
+      <DependentUpon>BNS_Model.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Images\scotiabank_logo.png" />
     <Content Include="Scripts\bootstrap.js" />
@@ -231,12 +257,32 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Account.cs">
+      <DependentUpon>BNS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AccountType.cs">
+      <DependentUpon>BNS_Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Account\Admin\ManageUsers.aspx.cs">
       <DependentUpon>ManageUsers.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Account\Admin\ManageUsers.aspx.designer.cs">
       <DependentUpon>ManageUsers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Customer\AddAccount.aspx.cs">
+      <DependentUpon>AddAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Customer\AddAccount.aspx.designer.cs">
+      <DependentUpon>AddAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Customer\Transactions.aspx.cs">
+      <DependentUpon>Transactions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Customer\Transactions.aspx.designer.cs">
+      <DependentUpon>Transactions.aspx</DependentUpon>
     </Compile>
     <Compile Include="Account\Forgot.aspx.cs">
       <DependentUpon>Forgot.aspx</DependentUpon>
@@ -251,6 +297,55 @@
     </Compile>
     <Compile Include="Account\Lockout.aspx.designer.cs">
       <DependentUpon>Lockout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Teller\Deposit.aspx.cs">
+      <DependentUpon>Deposit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Teller\Deposit.aspx.designer.cs">
+      <DependentUpon>Deposit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Teller\ViewTransactions.aspx.cs">
+      <DependentUpon>ViewTransactions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Teller\ViewTransactions.aspx.designer.cs">
+      <DependentUpon>ViewTransactions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Teller\View_Customers.aspx.cs">
+      <DependentUpon>View_Customers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Teller\View_Customers.aspx.designer.cs">
+      <DependentUpon>View_Customers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Teller\Withdraw.aspx.cs">
+      <DependentUpon>Withdraw.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Teller\Withdraw.aspx.designer.cs">
+      <DependentUpon>Withdraw.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BNS_Model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BNS_Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BNS_Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BNS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BNS_Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BNS_Model.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="CardNumber.cs">
+      <DependentUpon>BNS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Customer.cs">
+      <DependentUpon>BNS_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -324,7 +419,10 @@
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
-    <Compile Include="Startup.cs" />
+    <Compile Include="BNS_Startup.cs" />
+    <Compile Include="Transaction.cs">
+      <DependentUpon>BNS_Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Views\ErrorPages\401.aspx.cs">
       <DependentUpon>401.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -353,10 +451,12 @@
     <Compile Include="Views\ErrorPages\500.aspx.designer.cs">
       <DependentUpon>500.aspx</DependentUpon>
     </Compile>
+    <Compile Include="WebService\BNS_Service.asmx.cs">
+      <DependentUpon>BNS_Service.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Account\Customer\" />
-    <Folder Include="Account\Teller\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
@@ -369,6 +469,15 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NCB_web\NCB_web.csproj">
+      <Project>{57B87FC7-AAD1-4701-A5A7-D48B0DEE36B0}</Project>
+      <Name>NCB_web</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
