@@ -10,7 +10,6 @@
                 <ItemTemplate>
                     <div class="col-md-4">
                         <div class="card" style="border: 1px solid rgba(0,0,0,.125);">
-                            <img class="card-img-top" src="../Images/ncb-header.jpg" height="250" width="359" alt="Card image cap">
                             <div class="card-body" style="margin: 10px;">
                                 <p class="card-text">
                                     <label>Account Balance: </label>

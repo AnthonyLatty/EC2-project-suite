@@ -81,7 +81,6 @@ namespace JPS_web.Account.Customer
                     client.getPayment(amount, Convert.ToInt64(tbcardnum.Text), Convert.ToString(billID));
 
 
-
                     using (JPS_webEntities customer = new JPS_webEntities())
                     {
                         Bill bill = customer.Bills.SingleOrDefault(x => x.BillId == billID);
@@ -94,7 +93,21 @@ namespace JPS_web.Account.Customer
                 }
                 else if (first_four_digit == "4001")
                 {
-                    // ASMX Service call here...
+                    if (first_four_digit == "4001")
+                    {
+                        BNS_ServiceReference.BNS_ServiceSoapClient bNS_Service = new BNS_ServiceReference.BNS_ServiceSoapClient();
+                        bNS_Service.getPayment(amount, Convert.ToInt64(tbcardnum.Text), Convert.ToString(billID));
+
+                        using (JPS_webEntities customer = new JPS_webEntities())
+                        {
+                            Bill bill = customer.Bills.SingleOrDefault(x => x.BillId == billID);
+
+                            bill.BillStatus = 1;
+
+                            customer.SaveChanges();
+                        }
+                        Response.Redirect("ManageBill.aspx");
+                    }
                 }
             }
         }

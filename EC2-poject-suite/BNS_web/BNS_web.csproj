@@ -209,6 +209,7 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Account\Web.config" />
+    <Content Include="WebService\BNS_Service.asmx" />
     <EntityDeploy Include="BNS_Model.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>BNS_Model.Designer.cs</LastGenOutput>
@@ -450,10 +451,13 @@
     <Compile Include="Views\ErrorPages\500.aspx.designer.cs">
       <DependentUpon>500.aspx</DependentUpon>
     </Compile>
+    <Compile Include="WebService\BNS_Service.asmx.cs">
+      <DependentUpon>BNS_Service.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="WebService\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
