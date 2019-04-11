@@ -95,7 +95,7 @@ namespace JPS_web.Account.Customer
                 {
                     if (first_four_digit == "4001")
                     {
-                        BNS_ServiceReference.BNS_ServiceSoapClient bNS_Service = new BNS_ServiceReference.BNS_ServiceSoapClient();
+                        var bNS_Service = new BNS_ServiceReference.BNS_ServiceSoapClient();
                         bNS_Service.getPayment(amount, Convert.ToInt64(tbcardnum.Text), Convert.ToString(billID));
 
                         using (JPS_webEntities customer = new JPS_webEntities())
